@@ -1,0 +1,7 @@
+File,Function,Vulnerability,True Source (Input),True Sink (Execution)
+code_i.py,code_ex,Code Injection,"request.args.get(""code"")","exec(), eval()"
+com_i.py,com1,Cmd Injection,"request.args.get(""files"")",os.system()
+com_i.py,com2,Cmd Injection,"request.args.get(""files"")",subprocess.Popen()
+com_i.py,path_exists,Cmd Injection,"request.args.get(""path"")",os.system()
+sql_flask_i.py,show_user,SQL Injection,"request.args.get(""username"")","cursor.execute(), User.objects.raw()"
+sql_i.py,show_user,SQL Injection,username (arg),cursor.execute()

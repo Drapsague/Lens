@@ -1,0 +1,170 @@
+[2025-12-09 14:16:17] This is codeql dataset import -J-Xmx3089M --verbosity=progress --logdir=/home/drapsague/Devoteam/4_CodeQL/zero_to_hero/Playground/python/vu/flask-db/log --dbscheme=/opt/codeql/python/semmlecode.python.dbscheme --threads=4 -- /home/drapsague/Devoteam/4_CodeQL/zero_to_hero/Playground/python/vu/flask-db/db-python /home/drapsague/Devoteam/4_CodeQL/zero_to_hero/Playground/python/vu/flask-db/trap/python
+[2025-12-09 14:16:18] Clearing disk cache since the version file /home/drapsague/Devoteam/4_CodeQL/zero_to_hero/Playground/python/vu/flask-db/db-python/default/cache/version does not exist
+[2025-12-09 14:16:18] Tuple pool not found. Clearing relations with cached strings
+[2025-12-09 14:16:18] Trimming disk cache at /home/drapsague/Devoteam/4_CodeQL/zero_to_hero/Playground/python/vu/flask-db/db-python/default/cache in mode clear.
+[2025-12-09 14:16:18] Sequence stamp origin is -5972039591256066121
+[2025-12-09 14:16:18] Pausing evaluation to hard-clear memory at sequence stamp o+0
+[2025-12-09 14:16:18] Unpausing evaluation
+[2025-12-09 14:16:18] Pausing evaluation to quickly trim disk at sequence stamp o+1
+[2025-12-09 14:16:18] Unpausing evaluation
+[2025-12-09 14:16:18] Pausing evaluation to zealously trim disk at sequence stamp o+2
+[2025-12-09 14:16:18] Unpausing evaluation
+[2025-12-09 14:16:18] Trimming completed (6ms): Purged everything.
+[2025-12-09 14:16:18] Scanning for files in /home/drapsague/Devoteam/4_CodeQL/zero_to_hero/Playground/python/vu/flask-db/trap/python
+[2025-12-09 14:16:18] Found 14 TRAP files (588.47 KiB)
+[2025-12-09 14:16:18] [PROGRESS] dataset import> Importing TRAP files
+[2025-12-09 14:16:18] Importing $files.xBM5TH8cnFr3qrVaq4mBgi8me4w=.trap.gz (3 of 14)
+[2025-12-09 14:16:18] Importing $files.xukujlPiDgcbR0yLtMZdxJHidKA=.trap.gz (4 of 14)
+[2025-12-09 14:16:18] Importing $files.QseVlz9atrwFP4DjhvovdYXwfzo=.trap.gz (2 of 14)
+[2025-12-09 14:16:18] Importing $files.PsM0J6AlKRUteLOLqDHKo1n2ZWg=.trap.gz (1 of 14)
+[2025-12-09 14:16:18] Importing $flags.8jNw2SxTq7M4ueLjl_DHDG9N7Fc=.trap.gz (5 of 14)
+[2025-12-09 14:16:18] Importing $interpreter3.uagKJUHky2f3Yp5MSQdq4QoO2No=.trap.gz (6 of 14)
+[2025-12-09 14:16:18] Importing $stdlib_33.jw3b72Qohxy6wnxuBVAKXRD0IcE=.trap (7 of 14)
+[2025-12-09 14:16:18] Importing app.py.9yXFhy3-wnVKQ1I8ImgYuy9b3-M=.trap.gz (8 of 14)
+[2025-12-09 14:16:18] Importing db.py._445M321drO6_V1tSyOtQDxp_os=.trap.gz (9 of 14)
+[2025-12-09 14:16:18] Importing metadata.trap.gz (10 of 14)
+[2025-12-09 14:16:18] Importing re.jYVaXGjLZDaAX6Z4IXaZdagEXuU=.trap.gz (11 of 14)
+[2025-12-09 14:16:18] Importing security.py.Yt4m5J1EtQ_5SpfFMxVq-1OcF24=.trap.gz (12 of 14)
+[2025-12-09 14:16:18] Importing sqlite3.3X7ov9Eh-K5MXJGOa0vpX-FvnGY=.trap.gz (13 of 14)
+[2025-12-09 14:16:18] Importing utils.py.2Vb59UN0DYN-aEONgc25_6bWyfg=.trap.gz (14 of 14)
+[2025-12-09 14:16:18] [PROGRESS] dataset import> Merging relations
+[2025-12-09 14:16:18] Merging 4 fragments for 'containerparent'.
+[2025-12-09 14:16:18] Merging 4 fragments for 'folders'.
+[2025-12-09 14:16:18] Merging 4 fragments for 'files'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'ext_rettype'.
+[2025-12-09 14:16:18] Merged 66 bytes for 'containerparent'.
+[2025-12-09 14:16:18] Merged 59 bytes for 'folders'.
+[2025-12-09 14:16:18] Merged 33 bytes for 'files'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'ext_argreturn'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'ext_proptype'.
+[2025-12-09 14:16:18] Merging 4 fragments for 'py_cobjects'.
+[2025-12-09 14:16:18] Merged 42 bytes for 'ext_argreturn'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'ext_argtype'.
+[2025-12-09 14:16:18] Merged 3444 bytes (3.36 KiB) for 'ext_rettype'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_Modules'.
+[2025-12-09 14:16:18] Merged 307 bytes for 'ext_proptype'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'py_flags_versioned'.
+[2025-12-09 14:16:18] Merged 25 bytes for 'py_Modules'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_module_path'.
+[2025-12-09 14:16:18] Merged 188 bytes for 'py_flags_versioned'.
+[2025-12-09 14:16:18] Merging 4 fragments for 'py_cobject_sources'.
+[2025-12-09 14:16:18] Merged 43 bytes for 'py_module_path'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'variable'.
+[2025-12-09 14:16:18] Merged 6819 bytes (6.66 KiB) for 'ext_argtype'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_extracted_version'.
+[2025-12-09 14:16:18] Merged 1092 bytes (1.07 KiB) for 'variable'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_stmt_lists'.
+[2025-12-09 14:16:18] Merged 366 bytes for 'py_stmt_lists'.
+[2025-12-09 14:16:18] Merged 34 bytes for 'py_extracted_version'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_stmts'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_scopes'.
+[2025-12-09 14:16:18] Merged 1636 bytes (1.60 KiB) for 'py_stmts'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_alias_lists'.
+[2025-12-09 14:16:18] Merged 69 bytes for 'py_alias_lists'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_aliases'.
+[2025-12-09 14:16:18] Merged 138 bytes for 'py_aliases'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_exprs'.
+[2025-12-09 14:16:18] Merged 3936 bytes (3.84 KiB) for 'py_scopes'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_ints'.
+[2025-12-09 14:16:18] Merged 71 bytes for 'py_ints'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_strs'.
+[2025-12-09 14:16:18] Merged 6772 bytes (6.61 KiB) for 'py_exprs'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_bools'.
+[2025-12-09 14:16:18] Merged 1791 bytes (1.75 KiB) for 'py_strs'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_variables'.
+[2025-12-09 14:16:18] Merged 77 bytes for 'py_bools'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_expr_contexts'.
+[2025-12-09 14:16:18] Merged 1673 bytes (1.63 KiB) for 'py_variables'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_expr_lists'.
+[2025-12-09 14:16:18] Merged 4664 bytes (4.55 KiB) for 'py_cobjects'.
+[2025-12-09 14:16:18] Merged 2578 bytes (2.52 KiB) for 'py_expr_contexts'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_arguments'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_Functions'.
+[2025-12-09 14:16:18] Merged 1575 bytes (1.54 KiB) for 'py_expr_lists'.
+[2025-12-09 14:16:18] Merged 147 bytes for 'py_arguments'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_parameter_lists'.
+[2025-12-09 14:16:18] Merged 149 bytes for 'py_Functions'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_numbers'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_cmpop_lists'.
+[2025-12-09 14:16:18] Merged 9123 bytes (8.91 KiB) for 'py_cobject_sources'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_cmpops'.
+[2025-12-09 14:16:18] Merged 104 bytes for 'py_numbers'.
+[2025-12-09 14:16:18] Merged 124 bytes for 'py_parameter_lists'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_unaryops'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_boolops'.
+[2025-12-09 14:16:18] Merged 65 bytes for 'py_cmpop_lists'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_exports'.
+[2025-12-09 14:16:18] Merged 95 bytes for 'py_cmpops'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_flow_bb_node'.
+[2025-12-09 14:16:18] Merged 113 bytes for 'py_unaryops'.
+[2025-12-09 14:16:18] Merged 70 bytes for 'py_boolops'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_scope_flow'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_successors'.
+[2025-12-09 14:16:18] Merged 88 bytes for 'py_exports'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_idoms'.
+[2025-12-09 14:16:18] Merged 6623 bytes (6.47 KiB) for 'py_flow_bb_node'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_ssa_var'.
+[2025-12-09 14:16:18] Merged 1144 bytes (1.12 KiB) for 'py_scope_flow'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_ssa_defn'.
+[2025-12-09 14:16:18] Merged 580 bytes for 'py_ssa_var'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_ssa_use'.
+[2025-12-09 14:16:18] Merged 503 bytes for 'py_ssa_defn'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_true_successors'.
+[2025-12-09 14:16:18] Merged 3663 bytes (3.58 KiB) for 'py_successors'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_false_successors'.
+[2025-12-09 14:16:18] Merged 746 bytes for 'py_ssa_use'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'locations_ast'.
+[2025-12-09 14:16:18] Merged 3490 bytes (3.41 KiB) for 'py_idoms'.
+[2025-12-09 14:16:18] Merged 134 bytes for 'py_true_successors'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_scope_location'.
+[2025-12-09 14:16:18] Merged 134 bytes for 'py_false_successors'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_codelines'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_commentlines'.
+[2025-12-09 14:16:18] Merged 179 bytes for 'py_scope_location'.
+[2025-12-09 14:16:18] Merged 97 bytes for 'py_commentlines'.
+[2025-12-09 14:16:18] Merged 140 bytes for 'py_codelines'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_docstringlines'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_alllines'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'numlines'.
+[2025-12-09 14:16:18] Merged 93 bytes for 'py_docstringlines'.
+[2025-12-09 14:16:18] Merged 140 bytes for 'py_alllines'.
+[2025-12-09 14:16:18] Merging 2 fragments for 'py_locations'.
+[2025-12-09 14:16:18] Merging 3 fragments for 'py_cobjecttypes'.
+[2025-12-09 14:16:18] Merged 63 bytes for 'numlines'.
+[2025-12-09 14:16:18] Merging 3 fragments for 'py_cobjectnames'.
+[2025-12-09 14:16:18] Merged 9130 bytes (8.92 KiB) for 'locations_ast'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'sourceLocationPrefix'.
+[2025-12-09 14:16:18] Merged 17 bytes for 'sourceLocationPrefix'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'py_ssa_phi'.
+[2025-12-09 14:16:18] Merged 51 bytes for 'py_ssa_phi'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'py_Classes'.
+[2025-12-09 14:16:18] Merged 33 bytes for 'py_Classes'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'py_cmembers_versioned'.
+[2025-12-09 14:16:18] Merged 3956 bytes (3.86 KiB) for 'py_locations'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'py_special_objects'.
+[2025-12-09 14:16:18] Merged 5576 bytes (5.45 KiB) for 'py_cobjecttypes'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'py_citems'.
+[2025-12-09 14:16:18] Merged 150 bytes for 'py_special_objects'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'py_dict_item_lists'.
+[2025-12-09 14:16:18] Merged 517 bytes for 'py_citems'.
+[2025-12-09 14:16:18] Merged 6682 bytes (6.53 KiB) for 'py_cobjectnames'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'py_dict_items'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'py_exception_successors'.
+[2025-12-09 14:16:18] Merged 7353 bytes (7.18 KiB) for 'py_cmembers_versioned'.
+[2025-12-09 14:16:18] Merged 117 bytes for 'py_dict_item_lists'.
+[2025-12-09 14:16:18] Merging 1 fragment for 'py_comments'.
+[2025-12-09 14:16:18] Merged 53 bytes for 'py_exception_successors'.
+[2025-12-09 14:16:18] Merged 168 bytes for 'py_dict_items'.
+[2025-12-09 14:16:18] Merged 43 bytes for 'py_comments'.
+[2025-12-09 14:16:18] Saving string and id pools to disk.
+[2025-12-09 14:16:18] Finished importing TRAP files.
+[2025-12-09 14:16:18] Read 1.65 MiB of uncompressed TRAP data.
+[2025-12-09 14:16:18] Uncompressed relation data size: 396.71 KiB
+[2025-12-09 14:16:18] Relation data size: 96.83 KiB (merge rate: 415.84 KiB/s)
+[2025-12-09 14:16:18] String pool size: 2.08 MiB
+[2025-12-09 14:16:18] ID pool size: 1.09 MiB
+[2025-12-09 14:16:18] [PROGRESS] dataset import> Finished writing database (relations: 96.83 KiB; string pool: 2.08 MiB).
+[2025-12-09 14:16:18] Pausing evaluation to close the cache at sequence stamp o+253
+[2025-12-09 14:16:18] The disk cache is freshly trimmed; leave it be.
+[2025-12-09 14:16:18] Unpausing evaluation
+[2025-12-09 14:16:18] Terminating normally.

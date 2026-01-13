@@ -1,0 +1,13 @@
+---
+sourceLocationPrefix: /home/drapsague/Devoteam/4_CodeQL/zero_to_hero/Playground/python/vu/simple_flask_app
+baselineLinesOfCode: 454
+unicodeNewlines: false
+columnKind: utf32
+primaryLanguage: python
+creationMetadata:
+  sha: 5f2710ceff6db5f93c0eef89570a8fd53a261794
+  cliVersion: 2.23.6
+  creationTime: 2025-12-09T13:16:15.522553594Z
+overlayBaseDatabase: false
+overlayDatabase: false
+finalised: true

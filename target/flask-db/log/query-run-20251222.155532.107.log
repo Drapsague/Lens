@@ -1,0 +1,11 @@
+[2025-12-22 15:55:32] This is codeql query run --database=flask-db ./ql/detect_cwe639.ql --threads=5 --ram=4096
+[2025-12-22 15:55:32] Log file was started late.
+[2025-12-22 15:55:32] Calling plumbing command: codeql resolve ram --dataset=/home/drapsague/Devoteam/5_CIR/Lens/target/flask-db/db-python --ram=4096 --format=json
+[2025-12-22 15:55:32] [PROGRESS] resolve ram> Stringpool size measured as 2179482
+[2025-12-22 15:55:32] Plumbing command codeql resolve ram completed:
+                      [
+                        "-J-Xmx1800M",
+                        "--off-heap-ram=1606"
+                      ]
+[2025-12-22 15:55:32] Chaining via /tmp/codeql.pbtfQKZ6 to plumbing: execute queries -J-Xmx1800M --off-heap-ram=1606 --verbosity=progress --logdir=/home/drapsague/Devoteam/5_CIR/Lens/target/flask-db/log --evaluator-log-level=5 --threads=5 --warnings=show --qlconfig-file=/home/drapsague/Devoteam/5_CIR/Lens/target/qlconfig.yml --dynamic-join-order-mode=none -- /home/drapsague/Devoteam/5_CIR/Lens/target/flask-db/db-python path:/home/drapsague/Devoteam/5_CIR/Lens/target/ql/detect_cwe639.ql
+[2025-12-22 15:55:32] Exiting with code 70

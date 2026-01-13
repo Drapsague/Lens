@@ -1,0 +1,1380 @@
+[2025-12-09 17:01:26] This is codeql execute queries -J-Xmx2265M --verbosity=progress --logdir=/home/drapsague/Devoteam/5_CIR/Lens/target/flask-db/log --evaluator-log-level=5 --warnings=show --qlconfig-file=/home/drapsague/Devoteam/5_CIR/Lens/target/qlconfig.yml --dynamic-join-order-mode=none -- /home/drapsague/Devoteam/5_CIR/Lens/target/flask-db/db-python path:/home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql
+[2025-12-09 17:01:26] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/drapsague/Devoteam/5_CIR/Lens/target/qlconfig.yml --format=json -- path:/home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql
+[2025-12-09 17:01:26] [PROGRESS] resolve queries> Recording pack reference getting-started/codeql-extra-queries-2-python at /home/drapsague/Devoteam/5_CIR/Lens/target/ql.
+[2025-12-09 17:01:26] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql"
+                      ]
+[2025-12-09 17:01:26] Refusing fancy output: The terminal is not an xterm: screen-256color
+[2025-12-09 17:01:26] Creating executor with 1 threads.
+[2025-12-09 17:01:26] Calling plumbing command: codeql resolve extensions --qlconfig-file=/home/drapsague/Devoteam/5_CIR/Lens/target/qlconfig.yml --include-extension-row-locations path:/home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql
+[2025-12-09 17:01:26] Calling plumbing command: codeql resolve queries --qlconfig-file=/home/drapsague/Devoteam/5_CIR/Lens/target/qlconfig.yml --allow-library-packs --format startingpacks -- path:/home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql
+[2025-12-09 17:01:26] [PROGRESS] resolve queries> Recording pack reference getting-started/codeql-extra-queries-2-python at /home/drapsague/Devoteam/5_CIR/Lens/target/ql.
+[2025-12-09 17:01:26] Plumbing command codeql resolve queries completed:
+                      [
+                        "/home/drapsague/Devoteam/5_CIR/Lens/target/ql"
+                      ]
+[2025-12-09 17:01:26] Calling plumbing command: codeql resolve extensions-by-pack --qlconfig-file=/home/drapsague/Devoteam/5_CIR/Lens/target/qlconfig.yml --include-extension-row-locations -- /home/drapsague/Devoteam/5_CIR/Lens/target/ql
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] getting-started/codeql-extra-queries-2-python: not 1.0.0 {root: getting-started/codeql-extra-queries-2-python@1.0.0}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] getting-started/codeql-extra-queries-2-python: 1.0.0 {getting-started/codeql-extra-queries-2-python: not 1.0.0 {root: getting-started/codeql-extra-queries-2-python@1.0.0}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] getting-started/codeql-extra-queries-2-python: * [*], codeql/python-all: not * [*] {dependency: getting-started/codeql-extra-queries-2-python@* [*] requires codeql/python-all@^4.0.14}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 1] getting-started/codeql-extra-queries-2-python: 1.0.0
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/python-all: * [*] {getting-started/codeql-extra-queries-2-python: * [*], codeql/python-all: not * [*] {dependency: getting-started/codeql-extra-queries-2-python@* [*] requires codeql/python-all@^4.0.14}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/concepts: not * [*] {dependency: codeql/python-all@* [*] requires codeql/concepts@0.0.4}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/dataflow: not * [*] {dependency: codeql/python-all@* [*] requires codeql/dataflow@2.0.14}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/mad: not * [*] {dependency: codeql/python-all@* [*] requires codeql/mad@1.0.30}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/regex: not * [*] {dependency: codeql/python-all@* [*] requires codeql/regex@1.0.30}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/threat-models: not * [*] {dependency: codeql/python-all@* [*] requires codeql/threat-models@1.0.30}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/tutorial: not * [*] {dependency: codeql/python-all@* [*] requires codeql/tutorial@1.0.30}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/util: not * [*] {dependency: codeql/python-all@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/xml: not * [*] {dependency: codeql/python-all@* [*] requires codeql/xml@1.0.30}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/yaml: not * [*] {dependency: codeql/python-all@* [*] requires codeql/yaml@1.0.30}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 2] codeql/python-all: 4.0.14
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/yaml: * [*] {codeql/python-all: * [*], codeql/yaml: not * [*] {dependency: codeql/python-all@* [*] requires codeql/yaml@1.0.30}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/xml: * [*] {codeql/python-all: * [*], codeql/xml: not * [*] {dependency: codeql/python-all@* [*] requires codeql/xml@1.0.30}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/util: * [*] {codeql/python-all: * [*], codeql/util: not * [*] {dependency: codeql/python-all@* [*] requires codeql/util@2.0.17}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/tutorial: * [*] {codeql/python-all: * [*], codeql/tutorial: not * [*] {dependency: codeql/python-all@* [*] requires codeql/tutorial@1.0.30}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/threat-models: * [*] {codeql/python-all: * [*], codeql/threat-models: not * [*] {dependency: codeql/python-all@* [*] requires codeql/threat-models@1.0.30}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/regex: * [*] {codeql/python-all: * [*], codeql/regex: not * [*] {dependency: codeql/python-all@* [*] requires codeql/regex@1.0.30}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/mad: * [*] {codeql/python-all: * [*], codeql/mad: not * [*] {dependency: codeql/python-all@* [*] requires codeql/mad@1.0.30}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/dataflow: * [*] {codeql/python-all: * [*], codeql/dataflow: not * [*] {dependency: codeql/python-all@* [*] requires codeql/dataflow@2.0.14}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/concepts: * [*] {codeql/python-all: * [*], codeql/concepts: not * [*] {dependency: codeql/python-all@* [*] requires codeql/concepts@0.0.4}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/concepts: * [*], codeql/dataflow: not * [*] {dependency: codeql/concepts@* [*] requires codeql/dataflow@2.0.14}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/concepts: * [*], codeql/util: not * [*] {dependency: codeql/concepts@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 3] codeql/concepts: 0.0.4
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/controlflow: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/controlflow@2.0.14}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/ssa: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/ssa@2.0.6}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/typetracking: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/typetracking@2.0.14}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/util: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 4] codeql/dataflow: 2.0.14
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/typetracking: * [*] {codeql/dataflow: * [*], codeql/typetracking: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/typetracking@2.0.14}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/ssa: * [*] {codeql/dataflow: * [*], codeql/ssa: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/ssa@2.0.6}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DERIVATION] codeql/controlflow: * [*] {codeql/dataflow: * [*], codeql/controlflow: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/controlflow@2.0.14}}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/controlflow: * [*], codeql/util: not * [*] {dependency: codeql/controlflow@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 5] codeql/controlflow: 2.0.14
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/mad: * [*], codeql/dataflow: not * [*] {dependency: codeql/mad@* [*] requires codeql/dataflow@2.0.14}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/mad: * [*], codeql/util: not * [*] {dependency: codeql/mad@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 6] codeql/mad: 1.0.30
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/regex: * [*], codeql/util: not * [*] {dependency: codeql/regex@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 7] codeql/regex: 1.0.30
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/ssa: * [*], codeql/controlflow: not * [*] {dependency: codeql/ssa@* [*] requires codeql/controlflow@2.0.14}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/ssa: * [*], codeql/util: not * [*] {dependency: codeql/ssa@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 8] codeql/ssa: 2.0.6
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 9] codeql/threat-models: 1.0.30
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 10] codeql/tutorial: 1.0.30
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/typetracking: * [*], codeql/util: not * [*] {dependency: codeql/typetracking@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 11] codeql/typetracking: 2.0.14
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 12] codeql/util: 2.0.17
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [INCOMPATIBILITY] codeql/xml: * [*], codeql/util: not * [*] {dependency: codeql/xml@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 13] codeql/xml: 1.0.30
+[2025-12-09 17:01:26] [SPAMMY] resolve extensions-by-pack> [DECISION 14] codeql/yaml: 1.0.30
+[2025-12-09 17:01:26] [PROGRESS] resolve extensions-by-pack> Loading data extensions in /home/drapsague/.codeql/packages/codeql/python-all/4.0.14/ext/default-threat-models-fixup.model.yml.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/threat-models:threatModelConfiguration: 1 tuples.
+[2025-12-09 17:01:26] [PROGRESS] resolve extensions-by-pack> Loading data extensions in /home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Asyncpg.model.yml.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:sinkModel: 5 tuples.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:typeModel: 6 tuples.
+[2025-12-09 17:01:26] [PROGRESS] resolve extensions-by-pack> Loading data extensions in /home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Stdlib.model.yml.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:sourceModel: 12 tuples.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:sinkModel: 1 tuples.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:summaryModel: 66 tuples.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:neutralModel: 0 tuples.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:typeModel: 0 tuples.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:typeVariableModel: 0 tuples.
+[2025-12-09 17:01:26] [PROGRESS] resolve extensions-by-pack> Loading data extensions in /home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/empty.model.yml.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:sourceModel: 0 tuples.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:sinkModel: 0 tuples.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:summaryModel: 0 tuples.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:neutralModel: 0 tuples.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:typeModel: 0 tuples.
+[2025-12-09 17:01:26] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:typeVariableModel: 0 tuples.
+[2025-12-09 17:01:27] [PROGRESS] resolve extensions-by-pack> Loading data extensions in /home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/subclass-capture/ALL.model.yml.
+[2025-12-09 17:01:27] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/python-all:typeModel: 58275 tuples.
+[2025-12-09 17:01:27] [PROGRESS] resolve extensions-by-pack> Loading data extensions in /home/drapsague/.codeql/packages/codeql/threat-models/1.0.30/ext/supported-threat-models.model.yml.
+[2025-12-09 17:01:27] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/threat-models:threatModelConfiguration: 1 tuples.
+[2025-12-09 17:01:27] [PROGRESS] resolve extensions-by-pack> Loading data extensions in /home/drapsague/.codeql/packages/codeql/threat-models/1.0.30/ext/threat-model-grouping.model.yml.
+[2025-12-09 17:01:27] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/threat-models:threatModelGrouping: 15 tuples.
+[2025-12-09 17:01:27] [PROGRESS] resolve extensions-by-pack> Loading data extensions in /home/drapsague/.codeql/packages/codeql/util/2.0.17/ext/default-alert-filter.yml.
+[2025-12-09 17:01:27] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/util:restrictAlertsTo: 0 tuples.
+[2025-12-09 17:01:27] [DETAILS] resolve extensions-by-pack>   Found extension targeting codeql/util:restrictAlertsToExactLocation: 0 tuples.
+[2025-12-09 17:01:27] Plumbing command codeql resolve extensions-by-pack completed:
+                      {
+                        "models" : [ ],
+                        "data" : {
+                          "/home/drapsague/Devoteam/5_CIR/Lens/target/ql" : [
+                            {
+                              "predicate" : "threatModelConfiguration",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/ext/default-threat-models-fixup.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 0,
+                              "rowCount" : 1,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A=8",
+                                "columnNumbers" : "A=9"
+                              }
+                            },
+                            {
+                              "predicate" : "sinkModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Asyncpg.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 1,
+                              "rowCount" : 5,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A=7+1+2+1+2",
+                                "columnNumbers" : "A=9*5"
+                              }
+                            },
+                            {
+                              "predicate" : "typeModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Asyncpg.model.yml",
+                              "index" : 1,
+                              "firstRowId" : 6,
+                              "rowCount" : 6,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A=20+4+1*2+2+1",
+                                "columnNumbers" : "A=9*6"
+                              }
+                            },
+                            {
+                              "predicate" : "sourceModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Stdlib.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 12,
+                              "rowCount" : 12,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A=6+1*4+2+1+2+1*2+4+2",
+                                "columnNumbers" : "A=9*12"
+                              }
+                            },
+                            {
+                              "predicate" : "sinkModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Stdlib.model.yml",
+                              "index" : 1,
+                              "firstRowId" : 24,
+                              "rowCount" : 1,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A=29",
+                                "columnNumbers" : "A=9"
+                              }
+                            },
+                            {
+                              "predicate" : "summaryModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Stdlib.model.yml",
+                              "index" : 2,
+                              "firstRowId" : 25,
+                              "rowCount" : 66,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A=37+1+2+4+2*2+4+2*3+1+2+1+2+1+2+4+2+4+2*2+3+2*2+3+1+2*4+4+1+4+1+4+1*5+2*4+4+1+2*11+3+2+3+4+1+2*2+1+2",
+                                "columnNumbers" : "A=9*66"
+                              }
+                            },
+                            {
+                              "predicate" : "neutralModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Stdlib.model.yml",
+                              "index" : 3,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "typeModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Stdlib.model.yml",
+                              "index" : 4,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "typeVariableModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Stdlib.model.yml",
+                              "index" : 5,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "sourceModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "sinkModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 1,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "summaryModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 2,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "neutralModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 3,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "typeModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 4,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "typeVariableModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 5,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "typeModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/subclass-capture/ALL.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 91,
+                              "rowCount" : 58275,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A=7+3*58274",
+                                "columnNumbers" : "A=5*58275"
+                              }
+                            },
+                            {
+                              "predicate" : "threatModelConfiguration",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/threat-models/1.0.30/ext/supported-threat-models.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 58366,
+                              "rowCount" : 1,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A=6",
+                                "columnNumbers" : "A=9"
+                              }
+                            },
+                            {
+                              "predicate" : "threatModelGrouping",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/threat-models/1.0.30/ext/threat-model-grouping.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 58367,
+                              "rowCount" : 15,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A=8+3+1+3+1*5+3+1+5+1*3",
+                                "columnNumbers" : "A=9*15"
+                              }
+                            },
+                            {
+                              "predicate" : "restrictAlertsTo",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/util/2.0.17/ext/default-alert-filter.yml",
+                              "index" : 0,
+                              "firstRowId" : 58382,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "restrictAlertsToExactLocation",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/util/2.0.17/ext/default-alert-filter.yml",
+                              "index" : 1,
+                              "firstRowId" : 58382,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            }
+                          ]
+                        },
+                        "threatModels" : {
+                          "/home/drapsague/Devoteam/5_CIR/Lens/target/ql" : {
+                            "extensions" : [
+                              {
+                                "data" : [ ],
+                                "addsTo" : {
+                                  "extensible" : "threatModelConfiguration",
+                                  "checkPresence" : true,
+                                  "packName" : "codeql/threat-models"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "extensionPacks" : [ ]
+                      }
+[2025-12-09 17:01:27] Plumbing command codeql resolve extensions completed:
+                      {
+                        "models" : [ ],
+                        "data" : {
+                          "/home/drapsague/Devoteam/5_CIR/Lens/target/ql" : [
+                            {
+                              "predicate" : "threatModelConfiguration",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/ext/default-threat-models-fixup.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 0,
+                              "rowCount" : 1,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A=8",
+                                "columnNumbers" : "A=9"
+                              }
+                            },
+                            {
+                              "predicate" : "sinkModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Asyncpg.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 1,
+                              "rowCount" : 5,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A=7+1+2+1+2",
+                                "columnNumbers" : "A=9*5"
+                              }
+                            },
+                            {
+                              "predicate" : "typeModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Asyncpg.model.yml",
+                              "index" : 1,
+                              "firstRowId" : 6,
+                              "rowCount" : 6,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A=20+4+1*2+2+1",
+                                "columnNumbers" : "A=9*6"
+                              }
+                            },
+                            {
+                              "predicate" : "sourceModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Stdlib.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 12,
+                              "rowCount" : 12,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A=6+1*4+2+1+2+1*2+4+2",
+                                "columnNumbers" : "A=9*12"
+                              }
+                            },
+                            {
+                              "predicate" : "sinkModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Stdlib.model.yml",
+                              "index" : 1,
+                              "firstRowId" : 24,
+                              "rowCount" : 1,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A=29",
+                                "columnNumbers" : "A=9"
+                              }
+                            },
+                            {
+                              "predicate" : "summaryModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Stdlib.model.yml",
+                              "index" : 2,
+                              "firstRowId" : 25,
+                              "rowCount" : 66,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A=37+1+2+4+2*2+4+2*3+1+2+1+2+1+2+4+2+4+2*2+3+2*2+3+1+2*4+4+1+4+1+4+1*5+2*4+4+1+2*11+3+2+3+4+1+2*2+1+2",
+                                "columnNumbers" : "A=9*66"
+                              }
+                            },
+                            {
+                              "predicate" : "neutralModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Stdlib.model.yml",
+                              "index" : 3,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "typeModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Stdlib.model.yml",
+                              "index" : 4,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "typeVariableModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/Stdlib.model.yml",
+                              "index" : 5,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "sourceModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "sinkModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 1,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "summaryModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 2,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : true,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "neutralModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 3,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "typeModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 4,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "typeVariableModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/empty.model.yml",
+                              "index" : 5,
+                              "firstRowId" : 91,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "typeModel",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmle/python/frameworks/data/internal/subclass-capture/ALL.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 91,
+                              "rowCount" : 58275,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A=7+3*58274",
+                                "columnNumbers" : "A=5*58275"
+                              }
+                            },
+                            {
+                              "predicate" : "threatModelConfiguration",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/threat-models/1.0.30/ext/supported-threat-models.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 58366,
+                              "rowCount" : 1,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A=6",
+                                "columnNumbers" : "A=9"
+                              }
+                            },
+                            {
+                              "predicate" : "threatModelGrouping",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/threat-models/1.0.30/ext/threat-model-grouping.model.yml",
+                              "index" : 0,
+                              "firstRowId" : 58367,
+                              "rowCount" : 15,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A=8+3+1+3+1*5+3+1+5+1*3",
+                                "columnNumbers" : "A=9*15"
+                              }
+                            },
+                            {
+                              "predicate" : "restrictAlertsTo",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/util/2.0.17/ext/default-alert-filter.yml",
+                              "index" : 0,
+                              "firstRowId" : 58382,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            },
+                            {
+                              "predicate" : "restrictAlertsToExactLocation",
+                              "file" : "/home/drapsague/.codeql/packages/codeql/util/2.0.17/ext/default-alert-filter.yml",
+                              "index" : 1,
+                              "firstRowId" : 58382,
+                              "rowCount" : 0,
+                              "predicateHasOrigin" : false,
+                              "locations" : {
+                                "lineNumbers" : "A",
+                                "columnNumbers" : "A"
+                              }
+                            }
+                          ]
+                        },
+                        "threatModels" : {
+                          "/home/drapsague/Devoteam/5_CIR/Lens/target/ql" : {
+                            "extensions" : [
+                              {
+                                "data" : [ ],
+                                "addsTo" : {
+                                  "extensible" : "threatModelConfiguration",
+                                  "checkPresence" : true,
+                                  "packName" : "codeql/threat-models"
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "extensionPacks" : [ ]
+                      }
+[2025-12-09 17:01:27] [WARN] execute queries> Error retrieving qlpack commit hash from Git repository
+                             org.eclipse.jgit.api.errors.NoHeadException: No HEAD exists and no explicit starting revision was specified
+                             	at org.eclipse.jgit.api.LogCommand.call(LogCommand.java:129)
+                             	at com.semmle.cli2.pack.PackUtil.getLastCommit(PackUtil.java:64)
+                             	at com.semmle.cli2.pack.PackUtil.queryGitForHeadVersion(PackUtil.java:44)
+                             	at com.semmle.cli2.bqrs.InterpretCommand.getQlPackSha(InterpretCommand.java:424)
+                             	at com.semmle.cli2.execute.RunResultBuilder.lambda$addPack$0(RunResultBuilder.java:85)
+                             	at java.base/java.util.TreeMap.callMappingFunctionWithCheck(Unknown Source)
+                             	at java.base/java.util.TreeMap.computeIfAbsent(Unknown Source)
+                             	at com.semmle.cli2.execute.RunResultBuilder.addPack(RunResultBuilder.java:82)
+                             	at com.semmle.cli2.execute.RunResultBuilder.lambda$recordDataExtensions$4(RunResultBuilder.java:115)
+                             	at java.base/java.util.LinkedHashMap.forEach(Unknown Source)
+                             	at java.base/java.util.Collections$UnmodifiableMap.forEach(Unknown Source)
+                             	at com.semmle.cli2.execute.RunResultBuilder.recordDataExtensions(RunResultBuilder.java:105)
+                             	at com.semmle.cli2.execute.ExecuteQueriesCommand.executeSubcommand(ExecuteQueriesCommand.java:481)
+                             	at com.semmle.cli2.picocli.SubcommandCommon.lambda$executeSubcommandWithMessages$5(SubcommandCommon.java:892)
+                             	at com.semmle.cli2.picocli.SubcommandCommon.withCompilationMessages(SubcommandCommon.java:444)
+                             	at com.semmle.cli2.picocli.SubcommandCommon.executeSubcommandWithMessages(SubcommandCommon.java:890)
+                             	at com.semmle.cli2.picocli.SubcommandCommon.toplevelMain(SubcommandCommon.java:777)
+                             	at com.semmle.cli2.picocli.SubcommandCommon.call(SubcommandCommon.java:757)
+                             	at com.semmle.cli2.picocli.SubcommandMaker.runMain(SubcommandMaker.java:238)
+                             	at com.semmle.cli2.picocli.SubcommandMaker.runMain(SubcommandMaker.java:259)
+                             	at com.semmle.cli2.CodeQL.main(CodeQL.java:113)
+[2025-12-09 17:01:28] Calling plumbing command: codeql resolve library-path --qlconfig-file=/home/drapsague/Devoteam/5_CIR/Lens/target/qlconfig.yml --query=/home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql --format=json
+[2025-12-09 17:01:28] [DETAILS] resolve library-path> Resolving query at normalized path /home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql.
+[2025-12-09 17:01:28] [DETAILS] resolve library-path> Found enclosing pack 'getting-started/codeql-extra-queries-2-python' at /home/drapsague/Devoteam/5_CIR/Lens/target/ql.
+[2025-12-09 17:01:28] [DETAILS] resolve library-path> Adding compilation cache at /home/drapsague/.codeql/compile-cache.
+[2025-12-09 17:01:28] [DETAILS] resolve library-path> Resolving library dependencies from /home/drapsague/Devoteam/5_CIR/Lens/target/ql/qlpack.yml.
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] getting-started/codeql-extra-queries-2-python: not 1.0.0 {root: getting-started/codeql-extra-queries-2-python@1.0.0}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] getting-started/codeql-extra-queries-2-python: 1.0.0 {getting-started/codeql-extra-queries-2-python: not 1.0.0 {root: getting-started/codeql-extra-queries-2-python@1.0.0}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] getting-started/codeql-extra-queries-2-python: * [*], codeql/python-all: not * [*] {dependency: getting-started/codeql-extra-queries-2-python@* [*] requires codeql/python-all@^4.0.14}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 1] getting-started/codeql-extra-queries-2-python: 1.0.0
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] codeql/python-all: * [*] {getting-started/codeql-extra-queries-2-python: * [*], codeql/python-all: not * [*] {dependency: getting-started/codeql-extra-queries-2-python@* [*] requires codeql/python-all@^4.0.14}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/concepts: not * [*] {dependency: codeql/python-all@* [*] requires codeql/concepts@0.0.4}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/dataflow: not * [*] {dependency: codeql/python-all@* [*] requires codeql/dataflow@2.0.14}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/mad: not * [*] {dependency: codeql/python-all@* [*] requires codeql/mad@1.0.30}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/regex: not * [*] {dependency: codeql/python-all@* [*] requires codeql/regex@1.0.30}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/threat-models: not * [*] {dependency: codeql/python-all@* [*] requires codeql/threat-models@1.0.30}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/tutorial: not * [*] {dependency: codeql/python-all@* [*] requires codeql/tutorial@1.0.30}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/util: not * [*] {dependency: codeql/python-all@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/xml: not * [*] {dependency: codeql/python-all@* [*] requires codeql/xml@1.0.30}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/python-all: * [*], codeql/yaml: not * [*] {dependency: codeql/python-all@* [*] requires codeql/yaml@1.0.30}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 2] codeql/python-all: 4.0.14
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] codeql/yaml: * [*] {codeql/python-all: * [*], codeql/yaml: not * [*] {dependency: codeql/python-all@* [*] requires codeql/yaml@1.0.30}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] codeql/xml: * [*] {codeql/python-all: * [*], codeql/xml: not * [*] {dependency: codeql/python-all@* [*] requires codeql/xml@1.0.30}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] codeql/util: * [*] {codeql/python-all: * [*], codeql/util: not * [*] {dependency: codeql/python-all@* [*] requires codeql/util@2.0.17}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] codeql/tutorial: * [*] {codeql/python-all: * [*], codeql/tutorial: not * [*] {dependency: codeql/python-all@* [*] requires codeql/tutorial@1.0.30}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] codeql/threat-models: * [*] {codeql/python-all: * [*], codeql/threat-models: not * [*] {dependency: codeql/python-all@* [*] requires codeql/threat-models@1.0.30}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] codeql/regex: * [*] {codeql/python-all: * [*], codeql/regex: not * [*] {dependency: codeql/python-all@* [*] requires codeql/regex@1.0.30}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] codeql/mad: * [*] {codeql/python-all: * [*], codeql/mad: not * [*] {dependency: codeql/python-all@* [*] requires codeql/mad@1.0.30}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] codeql/dataflow: * [*] {codeql/python-all: * [*], codeql/dataflow: not * [*] {dependency: codeql/python-all@* [*] requires codeql/dataflow@2.0.14}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] codeql/concepts: * [*] {codeql/python-all: * [*], codeql/concepts: not * [*] {dependency: codeql/python-all@* [*] requires codeql/concepts@0.0.4}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/concepts: * [*], codeql/dataflow: not * [*] {dependency: codeql/concepts@* [*] requires codeql/dataflow@2.0.14}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/concepts: * [*], codeql/util: not * [*] {dependency: codeql/concepts@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 3] codeql/concepts: 0.0.4
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/controlflow: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/controlflow@2.0.14}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/ssa: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/ssa@2.0.6}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/typetracking: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/typetracking@2.0.14}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/dataflow: * [*], codeql/util: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 4] codeql/dataflow: 2.0.14
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] codeql/typetracking: * [*] {codeql/dataflow: * [*], codeql/typetracking: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/typetracking@2.0.14}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] codeql/ssa: * [*] {codeql/dataflow: * [*], codeql/ssa: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/ssa@2.0.6}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DERIVATION] codeql/controlflow: * [*] {codeql/dataflow: * [*], codeql/controlflow: not * [*] {dependency: codeql/dataflow@* [*] requires codeql/controlflow@2.0.14}}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/controlflow: * [*], codeql/util: not * [*] {dependency: codeql/controlflow@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 5] codeql/controlflow: 2.0.14
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/mad: * [*], codeql/dataflow: not * [*] {dependency: codeql/mad@* [*] requires codeql/dataflow@2.0.14}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/mad: * [*], codeql/util: not * [*] {dependency: codeql/mad@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 6] codeql/mad: 1.0.30
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/regex: * [*], codeql/util: not * [*] {dependency: codeql/regex@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 7] codeql/regex: 1.0.30
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/ssa: * [*], codeql/controlflow: not * [*] {dependency: codeql/ssa@* [*] requires codeql/controlflow@2.0.14}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/ssa: * [*], codeql/util: not * [*] {dependency: codeql/ssa@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 8] codeql/ssa: 2.0.6
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 9] codeql/threat-models: 1.0.30
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 10] codeql/tutorial: 1.0.30
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/typetracking: * [*], codeql/util: not * [*] {dependency: codeql/typetracking@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 11] codeql/typetracking: 2.0.14
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 12] codeql/util: 2.0.17
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [INCOMPATIBILITY] codeql/xml: * [*], codeql/util: not * [*] {dependency: codeql/xml@* [*] requires codeql/util@2.0.17}
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 13] codeql/xml: 1.0.30
+[2025-12-09 17:01:28] [SPAMMY] resolve library-path> [DECISION 14] codeql/yaml: 1.0.30
+[2025-12-09 17:01:28] [DETAILS] resolve library-path> QL pack dependencies for /home/drapsague/Devoteam/5_CIR/Lens/target/ql resolved OK.
+[2025-12-09 17:01:28] [DETAILS] resolve library-path> Found dbscheme through QL packs: /home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmlecode.python.dbscheme.
+[2025-12-09 17:01:28] Plumbing command codeql resolve library-path completed:
+                      {
+                        "libraryPath" : [
+                          "/home/drapsague/Devoteam/5_CIR/Lens/target/ql",
+                          "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14",
+                          "/home/drapsague/.codeql/packages/codeql/concepts/0.0.4",
+                          "/home/drapsague/.codeql/packages/codeql/dataflow/2.0.14",
+                          "/home/drapsague/.codeql/packages/codeql/controlflow/2.0.14",
+                          "/home/drapsague/.codeql/packages/codeql/mad/1.0.30",
+                          "/home/drapsague/.codeql/packages/codeql/regex/1.0.30",
+                          "/home/drapsague/.codeql/packages/codeql/ssa/2.0.6",
+                          "/home/drapsague/.codeql/packages/codeql/threat-models/1.0.30",
+                          "/home/drapsague/.codeql/packages/codeql/tutorial/1.0.30",
+                          "/home/drapsague/.codeql/packages/codeql/typetracking/2.0.14",
+                          "/home/drapsague/.codeql/packages/codeql/util/2.0.17",
+                          "/home/drapsague/.codeql/packages/codeql/xml/1.0.30",
+                          "/home/drapsague/.codeql/packages/codeql/yaml/1.0.30"
+                        ],
+                        "dbscheme" : "/home/drapsague/.codeql/packages/codeql/python-all/4.0.14/semmlecode.python.dbscheme",
+                        "compilationCache" : [
+                          "/home/drapsague/.codeql/compile-cache"
+                        ],
+                        "relativeName" : "getting-started/codeql-extra-queries-2-python/internalFunc.ql",
+                        "qlPackName" : "getting-started/codeql-extra-queries-2-python"
+                      }
+[2025-12-09 17:01:28] [PROGRESS] execute queries> Compiling query plan for /home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql.
+[2025-12-09 17:01:28] [DETAILS] execute queries> Resolving imports for /home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql.
+[2025-12-09 17:01:29] Resolved file set for /home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql hashes to fe800b00149696f5bb5ffa05edb5ea58.
+[2025-12-09 17:01:29] [DETAILS] execute queries> Checking QL for /home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql.
+[2025-12-09 17:01:29] Stale frontend caches are invalidated based on import graph reachability.
+[2025-12-09 17:01:30] ExternalModuleBindingPass ...
+[2025-12-09 17:01:31] ExternalModuleBindingPass time: 00:01.152
+[2025-12-09 17:01:31] CollectInstantiationsPass ...
+[2025-12-09 17:01:31] CollectInstantiationsPass time: 00:00.459
+[2025-12-09 17:01:31] Ql checks ...
+[2025-12-09 17:01:35] Ql checks time: 00:04.172
+[2025-12-09 17:01:40] Compilation pipeline
+[2025-12-09 17:01:41] Type Inference ...
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: Best number of iterations,Maximum number of runs,Number of BDD variables,Size of BDD for typefacts
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,0,0
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,0,0
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,96,97
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,0,0
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,327,385
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,0,0
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,24,24
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,48,72
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,5,5
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,7,7
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,562,15920
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,12,13
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,8,11
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,7,7
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,6,6
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,5,5
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,9,9
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,10,12
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,10,10
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,13,18
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,6,7
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,9,9
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,8,11
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,53,63
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,18,18
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,4,5
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,8,8
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,3,4
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,3,4
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,9,9
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,6,8
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,41,52
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2025-12-09 17:01:41] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2025-12-09 17:01:42] Type Inference time: 00:01.138
+[2025-12-09 17:01:42] [DETAILS] execute queries> Optimizing /home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql.
+[2025-12-09 17:01:42] Processing compilation pipeline
+[2025-12-09 17:01:42] Started compiling a query
+[2025-12-09 17:01:42] Initialising compiler...
+[2025-12-09 17:01:42] 	 ... compiler initialised
+[2025-12-09 17:01:42] About to start query optimisation
+[2025-12-09 17:01:42] Compilation cache hit - skipping compilation.
+[2025-12-09 17:01:43] Compilation cache hit - skipping compilation.
+[2025-12-09 17:01:43] Compilation cache miss for 41b625bfd6cba4115d1a440f6ffdc24d.
+[2025-12-09 17:01:43] Stored compiled program for 41b625bfd6cba4115d1a440f6ffdc24d.
+[2025-12-09 17:01:43] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2025-12-09 17:01:43] CSV_COMPILATION: 104,208,119,382
+[2025-12-09 17:01:43] [SPAMMY] execute queries> Resolving database upgrades/downgrades in search path for /home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql
+[2025-12-09 17:01:43] Calling plumbing command: codeql resolve upgrades --additional-packs=/home/drapsague/Devoteam/5_CIR/Lens/target/ql:/home/drapsague/.codeql/packages/codeql/python-all/4.0.14:/home/drapsague/.codeql/packages/codeql/concepts/0.0.4:/home/drapsague/.codeql/packages/codeql/dataflow/2.0.14:/home/drapsague/.codeql/packages/codeql/controlflow/2.0.14:/home/drapsague/.codeql/packages/codeql/mad/1.0.30:/home/drapsague/.codeql/packages/codeql/regex/1.0.30:/home/drapsague/.codeql/packages/codeql/ssa/2.0.6:/home/drapsague/.codeql/packages/codeql/threat-models/1.0.30:/home/drapsague/.codeql/packages/codeql/tutorial/1.0.30:/home/drapsague/.codeql/packages/codeql/typetracking/2.0.14:/home/drapsague/.codeql/packages/codeql/util/2.0.17:/home/drapsague/.codeql/packages/codeql/xml/1.0.30:/home/drapsague/.codeql/packages/codeql/yaml/1.0.30 --target-sha=5af903da088e3746aa283700a43a779302453523 --allow-downgrades --dbscheme=/home/drapsague/Devoteam/5_CIR/Lens/target/flask-db/db-python/semmlecode.python.dbscheme --format=json
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Searching for upgrades that apply to acf8d3b08ae3cfac8833d16efbfa5a10fef86819.
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/Devoteam/5_CIR/Lens/target/ql/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/.codeql/packages/codeql/python-all/4.0.14/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/.codeql/packages/codeql/concepts/0.0.4/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/.codeql/packages/codeql/dataflow/2.0.14/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/.codeql/packages/codeql/controlflow/2.0.14/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/.codeql/packages/codeql/mad/1.0.30/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/.codeql/packages/codeql/regex/1.0.30/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/.codeql/packages/codeql/ssa/2.0.6/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/.codeql/packages/codeql/threat-models/1.0.30/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/.codeql/packages/codeql/tutorial/1.0.30/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/.codeql/packages/codeql/typetracking/2.0.14/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/.codeql/packages/codeql/util/2.0.17/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/.codeql/packages/codeql/xml/1.0.30/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /home/drapsague/.codeql/packages/codeql/yaml/1.0.30/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /opt/codeql/.codeqlmanifest.json
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /opt/
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /opt/codeql-repo/codeql-workspace.yml
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Not scanning from /opt/codeql which is already done.
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Will look for upgrades in /home/drapsague/.codeql/packages/codeql/python-all/4.0.14/upgrades
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql/legacy-upgrades/upgrades
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/ruby/ql/lib/upgrades
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/javascript/ql/lib/upgrades
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/cpp/ql/lib/upgrades
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/swift/ql/lib/upgrades
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/rust/ql/lib/upgrades
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/go/ql/lib/upgrades
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/java/ql/lib/upgrades
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/csharp/ql/lib/upgrades
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Found upgrade run ending at acf8d3b08ae3cfac8833d16efbfa5a10fef86819.
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Searching for downgrades that apply to acf8d3b08ae3cfac8833d16efbfa5a10fef86819.
+[2025-12-09 17:01:43] [DETAILS] resolve upgrades> Found downgrade run ending at acf8d3b08ae3cfac8833d16efbfa5a10fef86819.
+[2025-12-09 17:01:43] [SPAMMY] execute queries> Error resolving upgrades/downgrades with search paths []:
+                      Cannot downgrade to 5af903da088e3746aa283700a43a779302453523: there are no downgrades beyond acf8d3b08ae3cfac8833d16efbfa5a10fef86819
+                      com.semmle.util.exception.ResourceError: Cannot downgrade to 5af903da088e3746aa283700a43a779302453523: there are no downgrades beyond acf8d3b08ae3cfac8833d16efbfa5a10fef86819
+                      	at com.semmle.cli2.resolve.ResolveUpgradesCommand$AdaptationSequenceBuilder.checkPartialAdaptations(ResolveUpgradesCommand.java:372)
+                      	at com.semmle.cli2.resolve.ResolveUpgradesCommand$AdaptationSequenceBuilder.build(ResolveUpgradesCommand.java:354)
+                      	at com.semmle.cli2.resolve.ResolveUpgradesCommand.executeJSON(ResolveUpgradesCommand.java:98)
+                      	at com.semmle.cli2.resolve.ResolveUpgradesCommand.executeJSON(ResolveUpgradesCommand.java:36)
+                      	at com.semmle.cli2.picocli.SimpleJsonSubcommand.executeInsistingOnJSONWithExistingMessages(SimpleJsonSubcommand.java:121)
+                      	at com.semmle.cli2.picocli.SubcommandCommon.withCompilationMessages(SubcommandCommon.java:444)
+                      	at com.semmle.cli2.picocli.SimpleJsonSubcommand.executeInsistingOnJSON(SimpleJsonSubcommand.java:110)
+                      	at com.semmle.cli2.picocli.PlumbingRunner.call(PlumbingRunner.java:61)
+                      	at com.semmle.cli2.picocli.SubcommandCommon.callPlumbingInProcess(SubcommandCommon.java:170)
+                      	at com.semmle.cli2.ql.QuerySchemaAdapter.resolveAdaptationUsingPaths(QuerySchemaAdapter.java:163)
+                      	at com.semmle.cli2.ql.QuerySchemaAdapter.resolveAdaptationWithCache(QuerySchemaAdapter.java:114)
+                      	at com.semmle.cli2.ql.QuerySchemaAdapter.adaptToSchema(QuerySchemaAdapter.java:82)
+                      	at com.semmle.cli2.execute.ExecuteQueriesCommand$ExecutionIterator.startImpl(ExecuteQueriesCommand.java:229)
+                      	at com.semmle.cli2.execute.ExecuteQueriesCommand$ExecutionIterator.start(ExecuteQueriesCommand.java:192)
+                      	at com.semmle.cli2.execute.ExecuteQueriesCommand$ExecutionIterator.lambda$next$0(ExecuteQueriesCommand.java:187)
+                      	at com.semmle.util.concurrent.FutureUtils.supplyCompose(FutureUtils.java:248)
+                      	at com.semmle.util.concurrent.Paralleliser.lambda$startMoreJobs$3(Paralleliser.java:109)
+                      	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+                      	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+                      	at java.base/java.lang.Thread.run(Unknown Source)
+[2025-12-09 17:01:43] [SPAMMY] execute queries> Resolving database downgrades in extractor directories for /home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql
+[2025-12-09 17:01:43] Calling plumbing command: codeql resolve languages --format=json
+[2025-12-09 17:01:43] [DETAILS] resolve languages> Scanning for [codeql-extractor.yml] from /opt/codeql/.codeqlmanifest.json
+[2025-12-09 17:01:43] [DETAILS] resolve languages> Parsing /opt/codeql/csv/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/ruby/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/xml/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/javascript/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/yaml/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/html/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/python/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/cpp/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/actions/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/swift/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/rust/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/properties/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/go/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/java/codeql-extractor.yml.
+[2025-12-09 17:01:44] [DETAILS] resolve languages> Parsing /opt/codeql/csharp/codeql-extractor.yml.
+[2025-12-09 17:01:44] Plumbing command codeql resolve languages completed:
+                      {
+                        "aliases" : {
+                          "c" : "cpp",
+                          "c++" : "cpp",
+                          "c-c++" : "cpp",
+                          "c-cpp" : "cpp",
+                          "c#" : "csharp",
+                          "java-kotlin" : "java",
+                          "kotlin" : "java",
+                          "javascript-typescript" : "javascript",
+                          "typescript" : "javascript"
+                        },
+                        "extractors" : {
+                          "csv" : [
+                            {
+                              "extractor_root" : "/opt/codeql/csv"
+                            }
+                          ],
+                          "ruby" : [
+                            {
+                              "extractor_root" : "/opt/codeql/ruby",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "xml" : [
+                            {
+                              "extractor_root" : "/opt/codeql/xml"
+                            }
+                          ],
+                          "javascript" : [
+                            {
+                              "extractor_root" : "/opt/codeql/javascript",
+                              "extractor_options" : {
+                                "skip_types" : {
+                                  "title" : "Skip type extraction for TypeScript",
+                                  "description" : "Whether to skip the extraction of types in a TypeScript application",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "yaml" : [
+                            {
+                              "extractor_root" : "/opt/codeql/yaml"
+                            }
+                          ],
+                          "html" : [
+                            {
+                              "extractor_root" : "/opt/codeql/html"
+                            }
+                          ],
+                          "python" : [
+                            {
+                              "extractor_root" : "/opt/codeql/python",
+                              "extractor_options" : {
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Python extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "python_executable_name" : {
+                                  "title" : "Controls the name of the Python executable used by the Python extractor.",
+                                  "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(py|python|python3)$"
+                                }
+                              }
+                            }
+                          ],
+                          "cpp" : [
+                            {
+                              "extractor_root" : "/opt/codeql/cpp",
+                              "extractor_options" : {
+                                "scale_timeouts" : {
+                                  "title" : "Value to scale compiler introspection timeouts with",
+                                  "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-9]+"
+                                },
+                                "log_verbosity" : {
+                                  "title" : "Verbosity of the extractor logging",
+                                  "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+                                  "type" : "string",
+                                  "pattern" : "[0-3]"
+                                }
+                              }
+                            }
+                          ],
+                          "actions" : [
+                            {
+                              "extractor_root" : "/opt/codeql/actions",
+                              "extractor_options" : { }
+                            }
+                          ],
+                          "swift" : [
+                            {
+                              "extractor_root" : "/opt/codeql/swift"
+                            }
+                          ],
+                          "rust" : [
+                            {
+                              "extractor_root" : "/opt/codeql/rust",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (the default, to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|zstd)$"
+                                    }
+                                  }
+                                },
+                                "cargo_target_dir" : {
+                                  "title" : "Directory to use for cargo output files.",
+                                  "description" : "This value is an optional path to use as `CARGO_TARGET_DIR` for the internal cargo commands the extractor uses. Pointing it to a persistent directory may reduce execution time of consecutive extractor runs. By default, a new scratch directory is used for each run.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_target" : {
+                                  "title" : "Target architecture",
+                                  "description" : "Target architecture to use for analysis, analogous to `cargo --target`. By default the host architecture is used.\n",
+                                  "type" : "string"
+                                },
+                                "cargo_features" : {
+                                  "title" : "Cargo features to turn on",
+                                  "description" : "Comma-separated list of features to turn on. By default all features are enabled. If any features are specified, then only those features are enabled. The `default` feature must be explicitly specified if only default features are desired. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "cargo_cfg_overrides" : {
+                                  "title" : "Cargo cfg overrides",
+                                  "description" : "Comma-separated list of cfg settings to enable, or disable if prefixed with `-`. Can be repeated.\n",
+                                  "type" : "array"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    },
+                                    "flamegraph" : {
+                                      "title" : "[Experimental] File path for write flame graph log",
+                                      "description" : "Collect flame graph data using the `tracing-flame` crate. To render a flame graph or chart, run the `inferno-flamegraph` command. See also: https://crates.io/crates/tracing-flame\n",
+                                      "type" : "string"
+                                    }
+                                  }
+                                },
+                                "extract_dependencies_as_source" : {
+                                  "title" : "Extract dependencies as source code",
+                                  "description" : "Extract the full source code of dependencies instead of only extracting signatures.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "properties" : [
+                            {
+                              "extractor_root" : "/opt/codeql/properties"
+                            }
+                          ],
+                          "go" : [
+                            {
+                              "extractor_root" : "/opt/codeql/go",
+                              "extractor_options" : {
+                                "extract_tests" : {
+                                  "title" : "Whether to include Go test files in the CodeQL database.",
+                                  "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "extract_vendor_dirs" : {
+                                  "title" : "Whether to include Go vendor directories in the CodeQL database.",
+                                  "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "java" : [
+                            {
+                              "extractor_root" : "/opt/codeql/java",
+                              "extractor_options" : {
+                                "exclude" : {
+                                  "title" : "A glob excluding files from analysis.",
+                                  "description" : "A glob indicating what files to exclude from the analysis. This accepts glob patterns that are supported by Java's 'getPathMatcher' implementation.\n",
+                                  "type" : "string"
+                                },
+                                "add_prefer_source" : {
+                                  "title" : "Whether to always prefer source files over class files.",
+                                  "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless" : {
+                                  "title" : "Whether to use buildless (standalone) extraction (experimental).",
+                                  "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "buildless_dependency_dir" : {
+                                  "title" : "The path where buildless (standalone) extraction should keep dependencies.",
+                                  "description" : "If set, the buildless (standalone) extractor will store dependencies in this directory.\n",
+                                  "type" : "string"
+                                },
+                                "minimize_dependency_jars" : {
+                                  "title" : "Whether to rewrite and minimize downloaded JAR dependencies (experimental).",
+                                  "description" : "If 'true', JAR dependencies downloaded during extraction will be rewritten to remove unneeded data, such as method bodies. The default is 'false'.\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                }
+                              }
+                            }
+                          ],
+                          "csharp" : [
+                            {
+                              "extractor_root" : "/opt/codeql/csharp",
+                              "extractor_options" : {
+                                "trap" : {
+                                  "title" : "Options pertaining to TRAP.",
+                                  "description" : "Options pertaining to TRAP.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "compression" : {
+                                      "title" : "Controls compression for the TRAP files written by the extractor.",
+                                      "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+                                      "type" : "string",
+                                      "pattern" : "^(none|gzip|brotli)$"
+                                    }
+                                  }
+                                },
+                                "buildless" : {
+                                  "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+                                  "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+                                  "type" : "string",
+                                  "pattern" : "^(false|true)$"
+                                },
+                                "logging" : {
+                                  "title" : "Options pertaining to logging.",
+                                  "description" : "Options pertaining to logging.",
+                                  "type" : "object",
+                                  "properties" : {
+                                    "verbosity" : {
+                                      "title" : "Extractor logging verbosity level.",
+                                      "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+                                      "type" : "string",
+                                      "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+                                    }
+                                  }
+                                },
+                                "binlog" : {
+                                  "title" : "Binlog",
+                                  "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+                                  "type" : "array"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+[2025-12-09 17:01:44] Calling plumbing command: codeql resolve upgrades --search-path=/opt/codeql/python --target-sha=5af903da088e3746aa283700a43a779302453523 --allow-downgrades --dbscheme=/home/drapsague/Devoteam/5_CIR/Lens/target/flask-db/db-python/semmlecode.python.dbscheme --format=json
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Searching for upgrades that apply to acf8d3b08ae3cfac8833d16efbfa5a10fef86819.
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /opt/codeql/python/
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /opt/codeql/.codeqlmanifest.json
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /opt/
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Scanning for [codeql-pack.yml, qlpack.yml] from /opt/codeql-repo/codeql-workspace.yml
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Not scanning from /opt/codeql which is already done.
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql/legacy-upgrades/upgrades
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/ruby/ql/lib/upgrades
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/javascript/ql/lib/upgrades
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/python/ql/lib/upgrades
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/cpp/ql/lib/upgrades
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/swift/ql/lib/upgrades
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/rust/ql/lib/upgrades
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/go/ql/lib/upgrades
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/java/ql/lib/upgrades
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Will look for upgrades in /opt/codeql-repo/csharp/ql/lib/upgrades
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Found upgrade run ending at acf8d3b08ae3cfac8833d16efbfa5a10fef86819.
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Searching for downgrades that apply to acf8d3b08ae3cfac8833d16efbfa5a10fef86819.
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Will look for downgrades in /opt/codeql/python/downgrades
+[2025-12-09 17:01:44] [DETAILS] resolve upgrades> Found downgrade run ending at 5af903da088e3746aa283700a43a779302453523.
+[2025-12-09 17:01:44] Plumbing command codeql resolve upgrades completed:
+                      {
+                        "scripts" : [
+                          "/opt/codeql/python/downgrades/acf8d3b08ae3cfac8833d16efbfa5a10fef86819",
+                          "/opt/codeql/python/downgrades/6a1f497168da2f43828161d3c86db7d4c94c2b53"
+                        ],
+                        "finalDbscheme" : "/opt/codeql/python/downgrades/6a1f497168da2f43828161d3c86db7d4c94c2b53/semmlecode.python.dbscheme",
+                        "matchesTarget" : true
+                      }
+[2025-12-09 17:01:44] [SPAMMY] execute queries> Compiling upgrade to dbscheme 6a1f497168da2f43828161d3c86db7d4c94c2b53: Add @top type
+[2025-12-09 17:01:44] [SPAMMY] execute queries> Compiling upgrade to dbscheme 5af903da088e3746aa283700a43a779302453523: Add databaseMetadata and overlayChangedFiles relations
+[2025-12-09 17:01:44] [PROGRESS] execute queries> [1/1 comp 15.3s] Compiled /home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql.
+[2025-12-09 17:01:44] [PROGRESS] execute queries> Starting evaluation of getting-started/codeql-extra-queries-2-python/internalFunc.ql.
+[2025-12-09 17:01:44] Starting evaluation of /home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql
+[2025-12-09 17:01:44] (0s) Start query execution
+[2025-12-09 17:01:44] (0s) Beginning execution of /home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_AstExtended::AstNode.getLocation/0#dispred#6b4dcb62/2@389a43u0 with 2007 rows and digest b3aedej1knmtk424leb43ol0kp1.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Files::Impl::Container.splitAbsolutePath/2#dispred#324a3985/3@c992f399 with 43 rows and digest 87e0548o5kakdk9p3ev6p80cl64.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Essa::TEssaDefinition#4c062f56/1@1f640cq1 with 689 rows and digest 6cd246hntjk6tq7tu4qm04a4kla.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Essa::TEssaEdgeDefinition#be4738bc/4@2da913f5 with 88 rows and digest 71b84f6d0c951h0brt3ukemgu51.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::EssaDefinitions::piNode/3#b1917f93/3@3204beti with 88 rows and digest 76faa3lkbnad36hfd7rhc0vh6m9.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::AdjacentUses::adjacentUseUse/2#c094915e/2@7a8d25mj with 163 rows and digest 730c3acaecro5v3b59s6om9rr8f.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::AdjacentUses::adjacentUseUseSameVar/2#2eafd7db/2@5511060c with 163 rows and digest 730c3acaecro5v3b59s6om9rr8f.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::AdjacentUses::adjacentVarRefs/5#de1f7cd5/5@89f4b0i1 with 654 rows and digest f6302b4pou0bf9fisnam1ldckof.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::AdjacentUses::defSourceUseRank/4#ebad7bcb/4@99c70bvp with 1005 rows and digest 63a314lp7jp34r6tbd0mal71q81.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::SsaComputeImpl::variableDefine/4#79261f91/4@1e9ed9n1 with 526 rows and digest 3c9030feebhoclepeukmdfmnk4b.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Flow::BasicBlock.strictlyDominates/1#dispred#65ae2ca3/2@40c1c68m with 278 rows and digest 1d5bfana2bs9c9lt6nifbq57890.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_CachedStages::Stages::AST::ref/0#e52d92b5/0@c876115v with 1 rows and digest ac90f0ei322hhreshlvdl215c38.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_CachedStages::Stages::AST::backref/0#dddb3000/0@a80d27a0 with 1 rows and digest ac90f0ei322hhreshlvdl215c38.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaDefinitions::SsaSource::method_call_refinement/3#3634d2a9/3@ec7d91se with 103 rows and digest 2d700bng3bho7dtca6u4jg4625b.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaDefinitions::SsaSource::argument_refinement/3#615fb3a9/3@2d844778 with 48 rows and digest 677b23a6087ebb2rd96f03duhg9.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaDefinitions::SsaSource::assignment_definition/3#a5ba4d99/3@5c11868o with 181 rows and digest 7cf63b5cqlhnfo55op5mpi99ddc.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Flow::DefinitionNode#e8809c3b/1@a95b912i with 190 rows and digest 6b4820fosn9g5cu89vfj3eoom4f.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_AstExtended::AstNode.getAFlowNode/0#dispred#fcebb9ee/2@89ae53vo with 1765 rows and digest 641cd9v3crcblok1et3niem1ece.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaDefinitions::SsaSource::parameter_definition/2#40b2fede/2@9409b5ba with 44 rows and digest ab74b8uoro2d10j26f6ff11r9i1.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaDefinitions::SsaSource::attribute_assignment_refinement/3#5f777592/3@f4c9688s with 2 rows and digest 02c214v0i6bvbgvl70kbj62obmb.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Flow::ControlFlowNode.getScope/0#dispred#b061daac/2@afe6a2k8 with 1765 rows and digest 4e4d2714eu0ari2i0oofffucbn6.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_AstExtended::AstNode.getAChildNode/0#dispred#a130356d/2@4a4f6brg with 2032 rows and digest de9c35qsf3q4q8kj3ocd4f0e8m3.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Flow::BasicBlock.getASuccessor/0#dispred#7249dd96/2@debdc7ao with 173 rows and digest 27a0a3pqg4p80eqvlog4ls0ilhd.
+[2025-12-09 17:01:44] (0s)  >>> First-level cache hit cached_SsaDefinitions::SsaSource::attribute_deletion_refinement/3#7de1bd7a/3@bc7edf3e with empty relation.
+[2025-12-09 17:01:44] (0s)  >>> First-level cache hit cached_SsaDefinitions::SsaSource::deletion_definition/2#e74a17e3/2@a934fde8 with empty relation.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaDefinitions::SsaSource::exception_capture/2#fd0779df/2@793700dj with 1 rows and digest fcc973gos7f3haone69jbm5oc92.
+[2025-12-09 17:01:44] (0s)  >>> First-level cache hit cached_SsaDefinitions::SsaSource::exception_group_capture/2#d53f492d/2@790fdeja with empty relation.
+[2025-12-09 17:01:44] (0s)  >>> First-level cache hit cached_SsaDefinitions::SsaSource::import_star_refinement/3#1675f8e2/3@39fa47h0 with empty relation.
+[2025-12-09 17:01:44] (0s)  >>> First-level cache hit cached_SsaDefinitions::SsaSource::init_module_submodule_defn/2#64b1af7d/2@2761bd9c with empty relation.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Module::moduleNameFromFile/1#a01d5f51/2@010e4f4r with 5 rows and digest 488d22sllovjc197rk55p695h1d.
+[2025-12-09 17:01:44] (0s)  >>> First-level cache hit cached_SsaDefinitions::SsaSource::multi_assignment_definition/4#1d17889e/4@89e653d3 with empty relation.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Flow::SequenceNode.getElement/1#dispred#4cc4068f/3@cc5e78ka with 56 rows and digest 959571nmmpg7tp0inkj8sgiviu1.
+[2025-12-09 17:01:44] (0s)  >>> First-level cache hit cached_SsaDefinitions::SsaSource::pattern_alias_definition/2#e55586af/2@f91af3ha with empty relation.
+[2025-12-09 17:01:44] (0s)  >>> First-level cache hit cached_SsaDefinitions::SsaSource::pattern_capture_definition/2#77b3ae42/2@6e282c28 with empty relation.
+[2025-12-09 17:01:44] (0s)  >>> First-level cache hit cached_SsaDefinitions::SsaSource::test_refinement/3#2cbdf557/3@c646bdum with empty relation.
+[2025-12-09 17:01:44] (0s)  >>> First-level cache hit cached_SsaDefinitions::SsaSource::with_definition/2#e1888ceb/2@e0bd2902 with empty relation.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::SsaDefinitions::reachesEndOfBlock/4#214bd902/4@51af43la with 853 rows and digest 3839519uotcqmfs47f9ss2tl25f.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::Liveness::liveAtExit/2#b6aa63f4/2@00f3ba04 with 892 rows and digest cd41e02qkrr239smong2memmt66.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::Liveness::liveAtEntry/2#bab3ea7c/2@6601ffvo with 934 rows and digest 09cd8csg7g7clkht5r19fef32ob.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::SsaComputeImpl::defUseRank/4#782a2f48/4@a2d696uu with 2541 rows and digest 4abb765aifouomliv9r1gvus0k0.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::SsaComputeImpl::variableDef/4#38b3ef7e/4@8a1c0f76 with 679 rows and digest 155d13ne2r1li3rljk5p3ibgr65.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::SsaComputeImpl::variableRefine/4#b20a3c26/4@209e7767 with 153 rows and digest 1c134fcdm91oqrvtt9b2b8pbftc.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::SsaComputeImpl::variableUse/4#da62dc30/4@ce02f549 with 1862 rows and digest 43cf192h0973jtt3mg2igcb09kb.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::SsaComputeImpl::defRank/4#f608ea69/4@7f1611ue with 679 rows and digest ca3829pfdh4c40nu4uueegmnb40.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::SsaComputeImpl::lastRank/2#6cfcb19d/3@31be08bm with 805 rows and digest 3f7b30bvi85r40qt1ocd71pden2.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::EssaDefinitions::phiNode/2#4864b30d/2@6d3370k7 with 75 rows and digest 696cc9miskb38sj4pkol8p0r4hd.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Flow::BasicBlock.getImmediateDominator/0#dispred#0f15e8ec/2@408ca88v with 116 rows and digest 06a997quatu6bqngo445p1anaaa.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::SsaComputeImpl::ssaDef/2#1ca5a11b/2@5c252abd with 532 rows and digest 52487a1f5afp6lef5t4hq8c0jt1.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::EssaDefinitions::variableUpdate/5#c42159b9/5@2ba91fut with 526 rows and digest e5930b0lugutdmtmsa1h0q1v6b9.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::EssaDefinitions::variableDefinition/5#32b5d84f/5@5f1279gb with 393 rows and digest 996148hg0khjis1briqfu1qvjp8.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::EssaDefinitions::variableRefinement/5#4e891107/5@95e977ab with 133 rows and digest fedc007mcdgrsh09khem22rgt7b.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::SsaComputeImpl::ssaDefReachesRank/4#f19c6fee/4@532392t5 with 2268 rows and digest 4f297bj6bl3kp29remqftaa6le2.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Essa::TPhiFunction#dfb6fe3b/3@7b01100f with 75 rows and digest c2efde8c4c82tdvn33k2tn0m356.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Essa::PhiFunction.getInput/1#dispred#f797e1b9/3@1e15a0vd with 219 rows and digest 01f70av9fdfeqo4g5u0enkbci29.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Essa::TEssaNodeDefinition#96e9ebfe/4@a811d0mp with 393 rows and digest ce9266ouqdijmotgengrku12fm2.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Essa::TEssaNodeRefinement#8de2de42/4@3787696p with 133 rows and digest f603996pqoh6hnfc01vju0eeej3.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Exprs::Expr.toString/0#dispred#7435dfcd/2@a8c03872 with 1578 rows and digest 96c2b667dldq3850p3vl3u11q0d.
+[2025-12-09 17:01:44] (0s)  >>> First-level cache hit cached_Import::ImportStar.getModuleExpr/0#dispred#8ab9ce73/2@9212cahk with empty relation.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_AstExtended::AstNode.getParentNode/0#dispred#c159e3ee/2@699751d5 with 2032 rows and digest 31bfc13tm4bdnd0p4s2mo6ir1dd.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_#Flow::BasicBlock.getASuccessor/0#dispred#7249dd96Plus/2@4ae642b8 with 446 rows and digest 11a8d17kql8ti1tmnq2ufj9qeh9.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_Flow::ControlFlowNode.toString/0#dispred#e1af144b/2@54b666h0 with 1765 rows and digest a3c1bacumfigmr0dq7gojo4jp01.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::AdjacentUses::variableSourceUse/4#4525ef19/4@271bba4s with 479 rows and digest efb7b8olisiderbq2gjtifooeoc.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::AdjacentUses::definesAt/4#68130204/4@9b73a8u2 with 468 rows and digest 287d4eqdr1g3h9a1j8f6pdb9733.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::AdjacentUses::firstUse/2#ca053ce0/2@2780bbgq with 314 rows and digest 53284d12fgkcs7cmvgseoltg0k5.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::AdjacentUses::useOfDef/2#16a7ee50/2@97c10ecb with 474 rows and digest be0de1lcs3vfbc9spvvvmkm8kn8.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::SsaDefinitions::reachesExit/3#a534505a/3@69ae42if with 330 rows and digest 4164a1f5b2ti47hu19g3cj7d77c.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::SsaDefinitions::reachesUse/4#216dc4f6/4@158c02ei with 1840 rows and digest 85118ai4bn9ju0nf3mk4s7oua3a.
+[2025-12-09 17:01:44] (0s)  >>> Full cache hit cached_SsaCompute::SsaComputeImpl::ssaDefReachesUseWithinBlock/4#87a91e15/4@778d2eln with 1568 rows and digest 73800d5kbbqkd5c1im9udp4t6d4.
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_Functions/2@dc6e589f with 40 rows and digest 1ccfa2fu0r6oaps5rsdbtqd82da.
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_scopes/2@a7df0e9a with 1923 rows and digest 9f84d9eioqro0m8hhlojv0kpg62.
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_strs/3@35cd6b34 with 727 rows and digest c02e7bgaavs323co2vhqljmck7e.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate py_strs_120#join_rhs/3@bec877pd
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_strs_120#join_rhs/3@bec877pd with 727 rows and digest 026414m3t63obb9res8fu4tn6rd.
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_parameter_lists/2@1e178err with 28 rows and digest e352fasknjf0e0q4k0t0q73grf3.
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_exprs/4@62fb455g with 1578 rows and digest 27759abjj89qimencvhl1sgca7e.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate py_exprs_20#join_rhs/2@b6605fup
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_exprs_20#join_rhs/2@b6605fup with 1578 rows and digest 62185bh7bfncgch552j9g2vg3fc.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate py_exprs_10#join_rhs/2@073ac12u
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_exprs_10#join_rhs/2@073ac12u with 1578 rows and digest 5cc61ag9imci4uueuc7t5u0h046.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate AstGenerated::Parameter_#667c10c8#b/1@02fc48uf
+[2025-12-09 17:01:44] (0s)  >>> Created relation AstGenerated::Parameter_#667c10c8#b/1@02fc48uf with 730 rows and digest 67377dk52q7qg711hpq0kguugf1.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate py_exprs_120#join_rhs/3@79c6d770
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_exprs_120#join_rhs/3@79c6d770 with 1578 rows and digest 454805kbi2ga0eabpghnb6tq5j7.
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_expr_lists/3@1b5e391t with 471 rows and digest c0e9b6t28smfb4l0rpdlfh4hs16.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate py_expr_lists_120#join_rhs/3@3304a2u1
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_expr_lists_120#join_rhs/3@3304a2u1 with 471 rows and digest 2d336943oo699snpe36f88s86rf.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate py_exprs_230#join_rhs/3@bbf66b9g
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_exprs_230#join_rhs/3@bbf66b9g with 1578 rows and digest bc8dd101moo3m5iqagn9b6duvc4.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate Function::Parameter#352debb4#b/1@02f7abhu
+[2025-12-09 17:01:44] (0s)  >>> Created relation Function::Parameter#352debb4#b/1@02f7abhu with 44 rows and digest af213cpi3aqjrejvipi4vem07qd.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate AstGenerated::Function_.getAnArg/0#dispred#8d75a599/2@8c5833vb
+[2025-12-09 17:01:44] (0s)  >>> Created relation AstGenerated::Function_.getAnArg/0#dispred#8d75a599/2@8c5833vb with 44 rows and digest f1acc2p7im1jc6svq88vtd98pk5.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate #select/2@5941285d
+[2025-12-09 17:01:44] (0s)  >>> Created relation #select/2@5941285d with 1 rows and digest b7c006usmarq5ge6ecmg2p6en58.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate _#select_AstGenerated::Parameter_#667c10c8#b#shared/3@796327g1
+[2025-12-09 17:01:44] (0s)  >>> Created relation _#select_AstGenerated::Parameter_#667c10c8#b#shared/3@796327g1 with 1 rows and digest 9ea3304cj6cq86bikgmpi9rlcma.
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_locations/2@d222f4l2 with 1960 rows and digest 2bb7a7ucp6fmfidahfoa8hijrb5.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate py_locations_10#join_rhs/2@cad24bnc
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_locations_10#join_rhs/2@cad24bnc with 1960 rows and digest 28d31bb3vco47g1bt0p96vlvngc.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate AstGenerated::Expr_.getLocation/0#dispred#3637884c#bf/2@2f70e9cc
+[2025-12-09 17:01:44] (0s)  >>> Created relation AstGenerated::Expr_.getLocation/0#dispred#3637884c#bf/2@2f70e9cc with 1 rows and digest 715f5d074ch1d5sqh1nmo3le149.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate Function::Parameter.getLocation/0#dispred#8806da4b#bf/2@00f1ee8j
+[2025-12-09 17:01:44] (0s)  >>> Created relation Function::Parameter.getLocation/0#dispred#8806da4b#bf/2@00f1ee8j with 1 rows and digest 715f5d074ch1d5sqh1nmo3le149.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate _Function::Parameter.getLocation/0#dispred#8806da4b#bf__#select_AstGenerated::Parameter_#667c10c8#b#__#shared/4@1cfa57ip
+[2025-12-09 17:01:44] (0s)  >>> Created relation _Function::Parameter.getLocation/0#dispred#8806da4b#bf__#select_AstGenerated::Parameter_#667c10c8#b#__#shared/4@1cfa57ip with 1 rows and digest e0427b3tm630b0bphnq8h2he7de.
+[2025-12-09 17:01:44] (0s)  >>> Created relation folders/2@bad7d9u0 with 15 rows and digest c31bc1p8pideugm67nv45dls20d.
+[2025-12-09 17:01:44] (0s)  >>> Created relation files/2@ec93749g with 4 rows and digest e9f1e38cb3ome6apetqtlrr4n8c.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate Files::Input::ContainerBase.getAbsolutePath/0#dispred#bb5aca3b/2@966d67vo
+[2025-12-09 17:01:44] (0s)  >>> Created relation Files::Input::ContainerBase.getAbsolutePath/0#dispred#bb5aca3b/2@966d67vo with 19 rows and digest 604fa1pk02uh6oae0sjh9ijj4vb.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate m#Files::Location.hasLocationInfo/5#dispred#143bb906#bfffff/1@7dcd1463
+[2025-12-09 17:01:44] (0s)  >>> Created relation m#Files::Location.hasLocationInfo/5#dispred#143bb906#bfffff/1@7dcd1463 with 1 rows and digest 1529b1006i4l556fuh1fikhv3t4.
+[2025-12-09 17:01:44] (0s)  >>> Created relation locations_ast/6@aba204da with 2008 rows and digest af18cbla1p4vc9k2g5jmhn36dd6.
+[2025-12-09 17:01:44] (0s)  >>> Created relation py_module_path/2@7a0f7599 with 6 rows and digest 20b05eak63s8nod9lr0j2nn7421.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate Module::Module.getFile/0#dispred#53eb9b1b/2@648ff7sb
+[2025-12-09 17:01:44] (0s)  >>> Created relation Module::Module.getFile/0#dispred#53eb9b1b/2@648ff7sb with 4 rows and digest 5b4d73jlq0ogul2vu5nvdg9pnv6.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate Module::Module.getFile/0#dispred#53eb9b1b_0#antijoin_rhs/1@b54f01qv
+[2025-12-09 17:01:44] (0s)  >>> Created relation Module::Module.getFile/0#dispred#53eb9b1b_0#antijoin_rhs/1@b54f01qv with 4 rows and digest 74a256dlbjauslm1dq6u8sa10mb.
+[2025-12-09 17:01:44] (0s)  >>> Created relation locations_default/6@2b5cc3pr with 0 rows and digest THIS-RELATION-HAS-NO-TUPLES.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate locations_ast_102345#join_rhs/6@ba5e2d5g
+[2025-12-09 17:01:44] (0s)  >>> Created relation locations_ast_102345#join_rhs/6@ba5e2d5g with 2008 rows and digest 1c2cb0o05e0p757p798h85i6ku2.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate Files::Location.hasLocationInfo/5#dispred#143bb906#bfffff/6@d59aacnf
+[2025-12-09 17:01:44] (0s)  >>> Created relation Files::Location.hasLocationInfo/5#dispred#143bb906#bfffff/6@d59aacnf with 1 rows and digest 8a8e82bqvvep92g2ckhbqbcavfe.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate project#Files::Location.hasLocationInfo/5#dispred#143bb906#bfffff/1@942427mu
+[2025-12-09 17:01:44] (0s)  >>> Created relation project#Files::Location.hasLocationInfo/5#dispred#143bb906#bfffff/1@942427mu with 1 rows and digest 1529b1006i4l556fuh1fikhv3t4.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate __Function::Parameter.getLocation/0#dispred#8806da4b#bf__#select_AstGenerated::Parameter_#667c10c8#b__#antijoin_rhs/3@bc912bpa
+[2025-12-09 17:01:44] (0s)  >>> Created relation __Function::Parameter.getLocation/0#dispred#8806da4b#bf__#select_AstGenerated::Parameter_#667c10c8#b__#antijoin_rhs/3@bc912bpa with 1 rows and digest 9ea3304cj6cq86bikgmpi9rlcma.
+[2025-12-09 17:01:44] (0s) Starting to evaluate predicate #select#query/8@75fb47b5
+[2025-12-09 17:01:44] (0s)  >>> Created relation #select#query/8@75fb47b5 with 1 rows and digest dfd3d792ln3i6fcjb5i6v4dnu7e.
+[2025-12-09 17:01:44] (0s) Query done
+[2025-12-09 17:01:44] (0s) Sequence stamp origin is -5971997034846708171
+[2025-12-09 17:01:44] (0s) Pausing evaluation to sync to disk at sequence stamp o+0
+[2025-12-09 17:01:44] (0s) Unpausing evaluation
+[2025-12-09 17:01:44] Evaluation of /home/drapsague/Devoteam/5_CIR/Lens/target/ql/internalFunc.ql produced BQRS results.
+[2025-12-09 17:01:44] [PROGRESS] execute queries> Evaluation completed (436ms).
+[2025-12-09 17:01:44] Constructing in-process plumbing: codeql bqrs decode dummy.bqrs
+[2025-12-09 17:01:44] [PROGRESS] execute queries> Shutting down query evaluator.
+[2025-12-09 17:01:44] Pausing evaluation to close the cache at sequence stamp o+1
+[2025-12-09 17:01:44] The disk cache is freshly trimmed; leave it be.
+[2025-12-09 17:01:44] Unpausing evaluation
+[2025-12-09 17:01:44] Exiting with code 0
