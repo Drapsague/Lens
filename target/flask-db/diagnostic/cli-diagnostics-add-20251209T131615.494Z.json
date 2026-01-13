@@ -1,1 +1,0 @@
-{"timestamp":"2025-12-09T14:16:15.488428081+01:00","source":{"id":"cli/platform","name":"Platform"},"markdownMessage":"On the Linux (amd64; 6.6.87.2-microsoft-standard-WSL2) platform.","visibility":{"cliSummaryTable":false,"statusPage":false,"telemetry":true},"attributes":{"name":"Linux","version":"6.6.87.2-microsoft-standard-WSL2","arch":"amd64"}}

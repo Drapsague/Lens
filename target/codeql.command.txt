@@ -1,4 +1,0 @@
-
-codeql database create flask-db --language=python --source-root=simple_flask_app --threads=4 --ram=4096
-
-codeql database analyze flask-db /opt/codeql-repo/python/ql/src/codeql-suites/python-security-extended.qls --format=csv --output=./report/results.csv --threads=5 --ram=4096
