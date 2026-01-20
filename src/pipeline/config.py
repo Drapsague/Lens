@@ -16,7 +16,8 @@ class LoadConfig:
 
     @classmethod
     def from_yaml(cls, path: Path, iteration_name: str):
-        """We parse the YAML file, and return a dict of the 'iteration_name' params.
+        """
+        We parse the YAML file, and return a dict of the 'iteration_name' params.
 
         Output Example:
 

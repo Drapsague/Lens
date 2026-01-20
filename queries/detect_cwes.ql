@@ -9,7 +9,7 @@
 import python
 import semmle.python.dataflow.new.DataFlow
 import semmle.python.dataflow.new.TaintTracking
-import custom_query_5
+import custom_query
 import LLMVulnFlow::PathGraph
 
 // 1. Define the Configuration Signature

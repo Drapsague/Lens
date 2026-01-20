@@ -172,15 +172,3 @@ class DetectCWEsRunner(QueryExecutor):
         """Set the query path to the Detect CWEs query"""
         query: Query = Query(path=Path("./queries/detect_cwes.ql"), name="detect_cwes")
         self.query = query
-
-
-if __name__ == "__main__":
-    config = CodeQLConfig(
-        database_path=Path("./data/test/test-codeql-db"),
-        codeql_language="python",
-        report_format="csv",
-    )
-    InternalFunctionRunner(config=config).execute(
-        output_dir=Path("./data/test/runs/5/")
-    )
-    ExternalApisRunner(config=config).execute(output_dir=Path("./data/test/runs/5/"))

@@ -24,3 +24,7 @@ Analyze them and identify:
 
 {data}
 """
+
+
+# This prompt dict allows us to load these prompts from the YAML config file
+PROMPTS_DICT: dict[str, Prompts] = {"naive": NaivePrompt()}
