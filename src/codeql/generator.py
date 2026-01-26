@@ -3,7 +3,7 @@ import textwrap
 from pathlib import Path
 
 
-def generate_qll_file(working_dir: Path):
+def generate_qll_file(working_dir: Path) -> None:
     try:
         with open(working_dir / "llm_response.json", "r") as f:
             data = json.load(f)

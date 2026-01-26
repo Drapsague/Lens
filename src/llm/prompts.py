@@ -41,4 +41,4 @@ JSON_FILE:
 
 
 # This prompt dict allows us to load these prompts from the YAML config file
-PROMPTS_DICT: dict[str, Prompts] = {"naive": NaivePrompt()}
+PROMPTS_DICT: dict[str, type[Prompts]] = {"naive": NaivePrompt}

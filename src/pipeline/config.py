@@ -16,7 +16,7 @@ class LoadConfig:
     max_tokens: int
 
     @classmethod
-    def from_yaml(cls, path: Path, iteration_name: str):
+    def from_yaml(cls, path: Path, iteration_name: str) -> "LoadConfig":
         """
         We parse the YAML file, and return a dict of the 'iteration_name' params.
 

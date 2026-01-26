@@ -34,7 +34,7 @@ class PipelineRunner(ABC):
 
     iteration: Iteration
 
-    def setup_queries(self, run_dir: Path):
+    def setup_queries(self, run_dir: Path) -> None:
         """
         Create a symlink in the created folder fo the detect query
         queries/detect_cwes.ql
@@ -66,7 +66,7 @@ class PipelineRunner(ABC):
             link_param_2_path.symlink_to(shared_conf_file_2)
 
     @abstractmethod
-    def run(self):
+    def run(self) -> None:
         raise NotImplementedError()
 
 
@@ -91,13 +91,14 @@ class PipelineCIR(PipelineRunner):
         )
 
         # If the prompt is not found, the default prompt is the naive one
-        self.prompt = PROMPTS_DICT.get(str(self.config.prompt), NaivePrompt())
+        prompt_class = PROMPTS_DICT.get(str(self.config.prompt), NaivePrompt)
+        self.prompt = prompt_class()
 
         # Creating a Symlink to the detect_cwes query from the working dir
         # The detect_cwes.ql and custom_query.qll need to be in the same dir to perform the scan
         self.setup_queries(run_dir=self.output_dir)
 
-    def run(self):
+    def run(self) -> None:
         # Runs context queries
         InternalFunctionRunner(config=self.codeql_config).execute(
             output_dir=self.output_dir

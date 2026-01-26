@@ -29,7 +29,7 @@ class LLMClient:
             api_key=os.getenv("NVIDIA_API_KEY"),
         )
 
-    def send(self):
+    def send(self) -> str:
         """Send the prompt set in the config instance"""
         try:
             completion = self.client.chat.completions.create(
@@ -44,7 +44,7 @@ class LLMClient:
 
         except OpenAIError as e:
             print(f"Error: {e}")
-            pass
+            return ""
 
     def save(self, content) -> None:
         """Function to save the LLM response in the output directory, in JSON"""
