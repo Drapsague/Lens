@@ -8,6 +8,7 @@ class LoadConfig:
     """Load the config for an iteration, from the YAML file"""
 
     data: str
+    processor: str
     prompt: str
     model: str
     temperature: float

@@ -1,10 +1,11 @@
 import json
 import textwrap
+from pathlib import Path
 
 
-def generate_qll_file(input_path, output_path):
+def generate_qll_file(working_dir: Path):
     try:
-        with open(input_path, "r") as f:
+        with open(working_dir / "llm_response.json", "r") as f:
             data = json.load(f)
     except FileNotFoundError:
         print("Error: File not found.")
@@ -137,6 +138,8 @@ predicate isLLMGeneratedSink(DataFlow::Node sink) {{
 }}
 """)
 
-    with open(output_path, "w") as f:
+    with open(
+        working_dir / "queries/custom_query.qll", "w"
+    ) as f:  # Exporting in the output_dir/queries folder, with the detect_cwes.ql query
         f.write(qll_content)
-    print(f" Generated Generic QLL at {output_path}")
+    print(f" Generated Generic QLL at {working_dir}")

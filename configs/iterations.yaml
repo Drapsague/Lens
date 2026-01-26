@@ -1,6 +1,7 @@
 iterations:
   naive:
     data: test
+    processor: basic
     prompt: naive
     model: meta/llama-3.3-70b-instruct
     temperature: 0.1

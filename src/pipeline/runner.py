@@ -1,11 +1,23 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
 from pathlib import Path
 
-from config import LoadConfig
-from codeql.runner import CodeQLConfig, InternalFunctionRunner, ExternalApisRunner
-from llm.clients import send_prompt
-from llm.prompts import PROMPTS_DICT, NaivePrompt, Prompts
+from src.pipeline.config import LoadConfig
+from src.codeql.generator import generate_qll_file
+from src.codeql.runner import (
+    CodeQLConfig,
+    DatabaseCreator,
+    DetectCWEsRunner,
+    InternalFunctionRunner,
+    ExternalApisRunner,
+)
+from src.llm.clients import LLMClient, LLMConfig
+from src.llm.prompts import PROMPTS_DICT, NaivePrompt, Prompts
+from src.processing.processor import (
+    PROCESSOR_REGISTRY,
+    DataProcessor,
+    BasicCSVProcessing,
+)
 
 
 @dataclass
@@ -22,6 +34,37 @@ class PipelineRunner(ABC):
 
     iteration: Iteration
 
+    def setup_queries(self, run_dir: Path):
+        """
+        Create a symlink in the created folder fo the detect query
+        queries/detect_cwes.ql
+                codeql-pack.lock.yml # MANDATORY
+                qlpack.yml           # MANDATORY
+
+        """
+        queries = run_dir / "queries"
+        queries.mkdir(parents=True, exist_ok=True)
+
+        shared_query = Path("queries/detect_cwes.ql").resolve()
+        shared_conf_file_1 = Path("queries/codeql-pack.lock.yml").resolve()
+        shared_conf_file_2 = Path("queries/qlpack.yml").resolve()
+
+        link_path = queries / "detect_cwes.ql"
+        link_param_1_path = queries / "codeql-pack.lock.yml"
+        link_param_2_path = queries / "qlpack.yml"
+
+        # Creating Symlink for detect_cwes.ql
+        if not link_path.exists():
+            link_path.symlink_to(shared_query)
+
+        # Creating Symlink for codeql-pack.lock.yml
+        if not link_param_1_path.exists():
+            link_param_1_path.symlink_to(shared_conf_file_1)
+
+        # Creating Symlink for qlpack.yml
+        if not link_param_2_path.exists():
+            link_param_2_path.symlink_to(shared_conf_file_2)
+
     @abstractmethod
     def run(self):
         raise NotImplementedError()
@@ -31,38 +74,81 @@ class PipelineRunner(ABC):
 class PipelineCIR(PipelineRunner):
     """In charge of building the pipeline for the CIR"""
 
-    def run(self):
+    codeql_config: CodeQLConfig
+    config: LoadConfig = field(init=False)
+    output_dir: Path = field(init=False)
+    prompt: Prompts = field(init=False)
+
+    def __post_init__(self):
         # Load the config from the YAML file
-        config = LoadConfig.from_yaml(
+        self.config = LoadConfig.from_yaml(
             path=self.iteration.path, iteration_name=self.iteration.name
         )
-        # Create the CodeQL config
-        codeql_config = CodeQLConfig(
-            database_path=Path("./data/test/test-codeql-db"),
-            codeql_language="python",
-            report_format="csv",
+
+        # We generate a unique folder name for this iteration
+        self.output_dir = self.codeql_config.get_output_dir(
+            iteration_name=self.iteration.name
         )
-
-        # This should be changed, needs an automatic uuid generation for each new runs
-        output_dir: Path = Path("./data/test/runs/6/")
-
-        # Runs context queries
-        InternalFunctionRunner(config=codeql_config).execute(output_dir=output_dir)
-        ExternalApisRunner(config=codeql_config).execute(output_dir=output_dir)
 
         # If the prompt is not found, the default prompt is the naive one
-        prompt: Prompts = PROMPTS_DICT.get(str(config.prompt), NaivePrompt())
+        self.prompt = PROMPTS_DICT.get(str(self.config.prompt), NaivePrompt())
 
-        llm_response: str = send_prompt(
-            model=config.model,
-            prompt=prompt.render("test"),
-            max_token=config.max_tokens,
+        # Creating a Symlink to the detect_cwes query from the working dir
+        # The detect_cwes.ql and custom_query.qll need to be in the same dir to perform the scan
+        self.setup_queries(run_dir=self.output_dir)
+
+    def run(self):
+        # Runs context queries
+        InternalFunctionRunner(config=self.codeql_config).execute(
+            output_dir=self.output_dir
         )
+        ExternalApisRunner(config=self.codeql_config).execute(
+            output_dir=self.output_dir
+        )
+
+        # We get the "Processor" instance from the registry
+        basic_processor: type[DataProcessor] = PROCESSOR_REGISTRY.get(
+            str(self.config.processor), BasicCSVProcessing
+        )
+
+        # Get the context data in JSON
+        context_data: str = basic_processor().process(working_dir=self.output_dir)
+        basic_processor().write_file(self.output_dir, data=context_data)
+
+        llm_config = LLMConfig(
+            output_dir=self.output_dir,
+            model=self.config.model,
+            prompt=self.prompt.render(str(context_data)),
+            temperature=self.config.temperature,
+            top_p=self.config.top_p,
+            max_token=self.config.max_tokens,
+        )
+
+        llm_client = LLMClient(config=llm_config)
+        llm_response = llm_client.send()
+        llm_client.save(content=llm_response)
+
+        # Generate qll query
+        generate_qll_file(working_dir=self.output_dir)
+
+        # Scan code
+        DetectCWEsRunner(config=self.codeql_config).execute(output_dir=self.output_dir)
 
 
 if __name__ == "__main__":
     iteration: Iteration = Iteration(
         path=Path("./configs/iterations.yaml"), name="naive"
     )
-    test = PipelineCIR(iteration=iteration)
+    # Create the CodeQL config
+    config = CodeQLConfig(
+        working_dir=Path("./data/test/"),
+        codeql_language="python",
+        report_format="csv",
+        source_root=Path(
+            "/home/drapsague/Devoteam/4_CodeQL/zero_to_hero/Playground/python/test-python/"
+        ),
+    )
+    DatabaseCreator(config=config).execute()
+
+    test = PipelineCIR(iteration=iteration, codeql_config=config)
     test.run()

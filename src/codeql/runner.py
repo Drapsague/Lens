@@ -1,17 +1,43 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
 from pathlib import Path
+import uuid
 import subprocess
 
 
 @dataclass
 class CodeQLConfig:
-    """Environment configuration"""
+    """
+    Environment configuration
+    working_dir: The root folder for the analysis.
+        MUST CONTAIN:
+            - db/ for the CodeQL database # MANDATORY
+            - runs/ to export the generated files and scans # Optional
+    """
 
-    database_path: Path
+    working_dir: Path
     codeql_language: str
     report_format: str
     source_root: Path | None = None  # Useful when the project is finished
+
+    @property
+    def db_path(self) -> Path:
+        # Use it like: self.config.db_path
+        return self.working_dir / "db"
+
+    @property
+    def runs_path(self) -> Path:
+        # Use it like: self.config.runs_path
+        return self.working_dir / "runs"
+
+    def _create_run_id(self, iteration_name: str = "iteration") -> str:
+        """Generate unique UUID to name runs folder"""
+        unique_id = uuid.uuid4().hex[:8]
+        return f"{iteration_name}_{unique_id}"
+
+    def get_output_dir(self, iteration_name: str = "iteration") -> Path:
+        folder_name: str = self._create_run_id(iteration_name)
+        return self.runs_path / folder_name
 
 
 @dataclass
@@ -61,7 +87,7 @@ class DatabaseCreator(CodeQLOperator):
             "codeql",
             "database",
             "create",
-            str(self.config.database_path),
+            str(self.config.db_path),
             f"--language={self.config.codeql_language}",
             f"--source-root={self.config.source_root}",
             "--threads=4",
@@ -71,6 +97,9 @@ class DatabaseCreator(CodeQLOperator):
         if self.overwrite:
             # Add this flag to overwrite the current DB
             cmd.append("--overwrite")
+        elif self.config.db_path.exists():
+            # Don't run the cmd if the DB exists and no overwrite
+            return
 
         # Run the command to create the DB
         self._run(cmd)
@@ -86,6 +115,7 @@ class QueryExecutor(CodeQLOperator):
     """
 
     query: Query | None = None
+    output_file: Path | None = None  # Might be useless
 
     def execute(self, output_dir: Path | None = None) -> None:
         """Execute and export a CodeQL query"""
@@ -106,7 +136,7 @@ class QueryExecutor(CodeQLOperator):
             "codeql",
             "query",
             "run",
-            f"--database={self.config.database_path}",
+            f"--database={self.config.db_path}",
             str(self.query.path),
             "--threads=4",
             "--ram=4096",
@@ -117,6 +147,9 @@ class QueryExecutor(CodeQLOperator):
         output_file: str = (
             f"{str(output_dir)}/{self.query.name}.{self.config.report_format}"
         )
+        # Setting the output file attribute
+        self.output_file = Path(output_file)
+
         # We convert the query report from .bqrs to the chosen format
         decode_bqrs: list[str] = [
             "codeql",
@@ -162,13 +195,54 @@ class ExternalApisRunner(QueryExecutor):
         self.query = query
 
 
+class DatabaseQueryExecutor(CodeQLOperator):
+    """
+    Run ANY CodeQL database query, usually context related query
+    codeql database ...
+
+    """
+
+    query: Query | None = None
+    output_file: Path | None = None  # Might be useless
+
+    def execute(self, output_dir: Path | None = None) -> None:
+        """Execute and export a Database CodeQL query"""
+
+        # Error handling
+        if not self.query:
+            raise ValueError(f"The query is invalid or null: {self.query}")
+        if not output_dir:
+            raise ValueError(f"The output directory is invalid or null: {output_dir}")
+
+        # Creating the folder if it does not exist
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
+
+        output_file: str = f"{str(output_dir)}/{self.query.name}.sarif"
+        # Setting the output file attribute
+        self.output_file = Path(output_file)
+
+        database_analyze: list[str] = [
+            "codeql",
+            "database",
+            "analyze",
+            str(self.config.db_path),
+            str(output_dir / self.query.path),
+            "--format=sarif-latest",
+            f"--output={output_file}",
+            "--threads=4",
+            "--ram=4096",
+        ]
+
+        self._run(database_analyze)
+
+
 @dataclass
-class DetectCWEsRunner(QueryExecutor):
+class DetectCWEsRunner(DatabaseQueryExecutor):
     """
     This class is a specific implementation for the Detect CWEs query
     """
 
     def __post_init__(self):
         """Set the query path to the Detect CWEs query"""
-        query: Query = Query(path=Path("./queries/detect_cwes.ql"), name="detect_cwes")
+        query: Query = Query(path=Path("queries/detect_cwes.ql"), name="detect_cwes")
         self.query = query

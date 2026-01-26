@@ -21,7 +21,21 @@ I have extracted two CSV files from a Python Codebase.
 Analyze them and identify:
 1. Dangerous Sinks (SQL Injection, Command Injection, Code Injection).
 2. User-Controlled Sources (Entry points functions).
+3. STRICTLY return a single JSON object. Do not include markdown formatting or explanations outside the JSON.
 
+        **Required JSON Output Format:**
+        {{"confirmed_sinks": [
+            "os.system",
+            "subprocess.call"
+            // ... add only confirmed dangerous sinks
+          ],
+          "confirmed_sources": [
+            {{"function": "run", "parameter": "username" }},
+            {{"function": "process", "parameter": "filename" }}
+            // ... add only confirmed user-controlled sources
+          ]
+        }}
+JSON_FILE:
 {data}
 """
 
