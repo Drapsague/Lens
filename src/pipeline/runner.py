@@ -32,9 +32,11 @@ class Iteration:
 class PipelineContext:
     """Define every path or static variable name for a given pipeline"""
 
+    iteration_config: LoadConfig
+    codeql_config: CodeQLConfig
+
     output_dir: Path
-    run_dir: Path = field(init=False)
-    report_dir: Path = field(init=False)
+    working_dir: Path = field(init=False)
     clean_data_path: Path = field(init=False)
     qll_path: Path = field(init=False)
     queries_dir: Path = field(init=False)
@@ -46,8 +48,7 @@ class PipelineContext:
     LLM_RESPONSE_FILE: Path = Path("llm_repsonse.json")
 
     def __post_init__(self):
-        self.run_dir = self.output_dir  # Might be useless
-        self.report_dir = self.output_dir
+        self.working_dir = self.output_dir  # Might be useless
         self.queries_dir = self.output_dir / self.QUERIES_DIR
         self.clean_data_path = self.output_dir / self.CLEAN_DATA_FILE
         self.qll_path = self.queries_dir / self.QLL_FILE
@@ -67,7 +68,7 @@ class PipelineContext:
 class PipelineRunner(ABC):
     """Base class: In charge of anything related to a pipeline"""
 
-    context: PipelineContext
+    context: PipelineContext = field(init=False)
 
     # File needed to scan the code
     REQUIRED_QUERY_FILES: list[str] = [
@@ -79,13 +80,14 @@ class PipelineRunner(ABC):
 
     def _setup_queries(self) -> None:
         """
-        Create a symlink in the created folder fo the detect query
+        Create a symlink in the created folder for different file, to avoid copying them into each iteration folder
         queries/detect_cwes.ql
                 codeql-pack.lock.yml # MANDATORY
                 qlpack.yml           # MANDATORY
 
         """
 
+        # The detect_cwes.ql and custom_query.qll need to be in the same dir to perform the scan
         for file in self.REQUIRED_QUERY_FILES:
             shared_path: Path = self.SHARED_QUERIES_FILES_DIR / file
             shared_file = shared_path.resolve()
@@ -105,12 +107,7 @@ class PipelineRunner(ABC):
 class PipelineCIR(PipelineRunner):
     """In charge of building the pipeline for the CIR"""
 
-    iteration: Iteration
-    codeql_config: CodeQLConfig
-    config: LoadConfig = field(init=False)
-    output_dir: Path = field(init=False)
-
-    prompt: Prompts = field(init=False)
+    prompt_template: Prompts = field(init=False)
 
     def __post_init__(self):
         # Load the config from the YAML file
@@ -126,10 +123,6 @@ class PipelineCIR(PipelineRunner):
         # If the prompt is not found, the default prompt is the naive one
         prompt_class = PROMPTS_DICT.get(str(self.config.prompt), NaivePrompt)
         self.prompt = prompt_class()
-
-        # Creating a Symlink to the detect_cwes query from the working dir
-        # The detect_cwes.ql and custom_query.qll need to be in the same dir to perform the scan
-        self.setup_queries(run_dir=self.output_dir)
 
     def run(self) -> None:
         # Runs context queries
