@@ -3,13 +3,13 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 import uuid
 
-from src.pipeline.config import LoadConfig
-from src.codeql.runner import (
+from src.codeql import (
     CodeQLConfig,
     DatabaseCreator,
 )
-from src.llm.prompts import PROMPTS_DICT, NaivePrompt, Prompts
-from src.pipeline.step import (
+from src.llm import PROMPTS_DICT, NaivePrompt
+
+from src.pipeline import (
     PipelineContext,
     PipelineStep,
     RunSteps,
@@ -18,6 +18,7 @@ from src.pipeline.step import (
     LLMAnalysisStep,
     GenerateQLLStep,
     RunScanStep,
+    LoadConfig,
 )
 
 

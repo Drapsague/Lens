@@ -2,22 +2,21 @@ from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
 from pathlib import Path
 
-from src.pipeline.config import LoadConfig
-from src.llm.prompts import PROMPTS_DICT, NaivePrompt, Prompts
-from src.codeql.generator import generate_qll_file
-from src.codeql.runner import (
+from src.llm import Prompts, LLMClient, LLMConfig
+
+from src.codeql import (
     DetectCWEsRunner,
     InternalFunctionRunner,
     ExternalApisRunner,
     CodeQLConfig,
-    DatabaseCreator,
+    generate_qll_file,
 )
-from src.llm.clients import LLMClient, LLMConfig
-from src.processing.processor import (
+from src.processing import (
     PROCESSOR_REGISTRY,
     DataProcessor,
     BasicCSVProcessing,
 )
+from src.pipeline import LoadConfig
 
 
 @dataclass
