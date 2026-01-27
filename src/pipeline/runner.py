@@ -27,6 +27,7 @@ class Iteration:
     path: Path
     name: str
 
+
 @dataclass
 class PipelineContext:
     """Define every path or static variable name for a given pipeline"""
@@ -40,7 +41,7 @@ class PipelineContext:
     llm_response_path: Path = field(init=False)
 
     def __post_init__(self):
-        self.run_dir = self.output_dir # Might be useless
+        self.run_dir = self.output_dir  # Might be useless
         self.report_dir = self.output_dir
         self.queries_dir = self.output_dir / "queries"
         self.clean_data_path = self.output_dir / "clean_context_data.json"
@@ -64,10 +65,14 @@ class PipelineRunner(ABC):
     context: PipelineContext
 
     # File needed to scan the code
-    REQUIRED_QUERY_FILES: list[str] = ["detect_cwes.ql", "codeql-pack.lock.yml", "qlpack.yml"]
+    REQUIRED_QUERY_FILES: list[str] = [
+        "detect_cwes.ql",
+        "codeql-pack.lock.yml",
+        "qlpack.yml",
+    ]
     SHARED_QUERIES_FILES_DIR: Path = Path("queries")
 
-    def _setup_queries(self, run_dir: Path) -> None:
+    def _setup_queries(self) -> None:
         """
         Create a symlink in the created folder fo the detect query
         queries/detect_cwes.ql
@@ -76,29 +81,15 @@ class PipelineRunner(ABC):
 
         """
 
-        for files in self.REQUIRED_QUERY_FILES:
-            shared_file: Path = self.SHARED_QUERIES_FILES_DIR / 
+        for file in self.REQUIRED_QUERY_FILES:
+            shared_path: Path = self.SHARED_QUERIES_FILES_DIR / file
+            shared_file = shared_path.resolve()
 
+            # Symlink to the /queries dir in the working directory
+            link_path = self.context.queries_dir / file
 
-        shared_query = Path("queries/detect_cwes.ql").resolve()
-        shared_conf_file_1 = Path("queries/codeql-pack.lock.yml").resolve()
-        shared_conf_file_2 = Path("queries/qlpack.yml").resolve()
-
-        link_path = queries / "detect_cwes.ql"
-        link_param_1_path = queries / "codeql-pack.lock.yml"
-        link_param_2_path = queries / "qlpack.yml"
-
-        # Creating Symlink for detect_cwes.ql
-        if not link_path.exists():
-            link_path.symlink_to(shared_query)
-
-        # Creating Symlink for codeql-pack.lock.yml
-        if not link_param_1_path.exists():
-            link_param_1_path.symlink_to(shared_conf_file_1)
-
-        # Creating Symlink for qlpack.yml
-        if not link_param_2_path.exists():
-            link_param_2_path.symlink_to(shared_conf_file_2)
+            if not link_path.exists():
+                link_path.symlink_to(shared_file)
 
     @abstractmethod
     def run(self) -> None:
