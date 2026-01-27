@@ -40,13 +40,18 @@ class PipelineContext:
     queries_dir: Path = field(init=False)
     llm_response_path: Path = field(init=False)
 
+    QUERIES_DIR: Path = Path("queries")
+    CLEAN_DATA_FILE: Path = Path("clean_context_data.json")
+    QLL_FILE: Path = Path("custom_query.qll")
+    LLM_RESPONSE_FILE: Path = Path("llm_repsonse.json")
+
     def __post_init__(self):
         self.run_dir = self.output_dir  # Might be useless
         self.report_dir = self.output_dir
-        self.queries_dir = self.output_dir / "queries"
-        self.clean_data_path = self.output_dir / "clean_context_data.json"
-        self.qll_path = self.queries_dir / "custom_query.qll"
-        self.llm_response_path = self.output_dir / "llm_response.json"
+        self.queries_dir = self.output_dir / self.QUERIES_DIR
+        self.clean_data_path = self.output_dir / self.CLEAN_DATA_FILE
+        self.qll_path = self.queries_dir / self.QLL_FILE
+        self.llm_response_path = self.output_dir / self.LLM_RESPONSE_FILE
 
     def _setup(self):
         """
