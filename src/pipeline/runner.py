@@ -1,22 +1,23 @@
 from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
 from pathlib import Path
+import uuid
 
 from src.pipeline.config import LoadConfig
-from src.codeql.generator import generate_qll_file
 from src.codeql.runner import (
     CodeQLConfig,
     DatabaseCreator,
-    DetectCWEsRunner,
-    InternalFunctionRunner,
-    ExternalApisRunner,
 )
-from src.llm.clients import LLMClient, LLMConfig
 from src.llm.prompts import PROMPTS_DICT, NaivePrompt, Prompts
-from src.processing.processor import (
-    PROCESSOR_REGISTRY,
-    DataProcessor,
-    BasicCSVProcessing,
+from src.pipeline.step import (
+    PipelineContext,
+    PipelineStep,
+    RunSteps,
+    ContextExtractionStep,
+    ProcessDataStep,
+    LLMAnalysisStep,
+    GenerateQLLStep,
+    RunScanStep,
 )
 
 
@@ -29,54 +30,35 @@ class Iteration:
 
 
 @dataclass
-class PipelineContext:
-    """Define every path or static variable name for a given pipeline"""
-
-    iteration_config: LoadConfig
-    codeql_config: CodeQLConfig
-
-    output_dir: Path
-    working_dir: Path = field(init=False)
-    clean_data_path: Path = field(init=False)
-    qll_path: Path = field(init=False)
-    queries_dir: Path = field(init=False)
-    llm_response_path: Path = field(init=False)
-
-    QUERIES_DIR: Path = Path("queries")
-    CLEAN_DATA_FILE: Path = Path("clean_context_data.json")
-    QLL_FILE: Path = Path("custom_query.qll")
-    LLM_RESPONSE_FILE: Path = Path("llm_repsonse.json")
-
-    def __post_init__(self):
-        self.working_dir = self.output_dir  # Might be useless
-        self.queries_dir = self.output_dir / self.QUERIES_DIR
-        self.clean_data_path = self.output_dir / self.CLEAN_DATA_FILE
-        self.qll_path = self.queries_dir / self.QLL_FILE
-        self.llm_response_path = self.output_dir / self.LLM_RESPONSE_FILE
-
-    def _setup(self):
-        """
-        Creating the iteration folders
-            /[iteration_name]_uuid # output_dir
-                /queries           # queries_dir
-        """
-        self.output_dir.mkdir(parents=True, exist_ok=True)
-        self.queries_dir.mkdir(parents=True, exist_ok=True)
-
-
-@dataclass
 class PipelineRunner(ABC):
     """Base class: In charge of anything related to a pipeline"""
 
-    context: PipelineContext = field(init=False)
+    context: PipelineContext
+    iteration: Iteration
 
     # File needed to scan the code
-    REQUIRED_QUERY_FILES: list[str] = [
-        "detect_cwes.ql",
-        "codeql-pack.lock.yml",
-        "qlpack.yml",
-    ]
+    REQUIRED_QUERY_FILES: list[str] = field(
+        default_factory=lambda: [  # default_factory must be a zero argument callable, so we use lambda to create the list for each new instances
+            "detect_cwes.ql",
+            "codeql-pack.lock.yml",
+            "qlpack.yml",
+        ]
+    )
     SHARED_QUERIES_FILES_DIR: Path = Path("queries")
+
+    @property
+    def runs_path(self) -> Path:
+        # Use it like: self.config.runs_path
+        return self.context.codeql_config.working_dir / "runs"
+
+    def _create_run_id(self, iteration_name: str = "iteration") -> str:
+        """Generate unique UUID to name runs folder"""
+        unique_id = uuid.uuid4().hex[:8]
+        return f"{iteration_name}_{unique_id}"
+
+    def get_output_dir(self, iteration_name: str = "iteration") -> Path:
+        folder_name: str = self._create_run_id(iteration_name)
+        return self.runs_path / folder_name
 
     def _setup_queries(self) -> None:
         """
@@ -107,59 +89,41 @@ class PipelineRunner(ABC):
 class PipelineCIR(PipelineRunner):
     """In charge of building the pipeline for the CIR"""
 
-    prompt_template: Prompts = field(init=False)
-
     def __post_init__(self):
         # Load the config from the YAML file
-        self.config = LoadConfig.from_yaml(
+        self.context.iteration_config = LoadConfig.from_yaml(
             path=self.iteration.path, iteration_name=self.iteration.name
         )
-
         # We generate a unique folder name for this iteration
-        self.output_dir = self.codeql_config.get_output_dir(
-            iteration_name=self.iteration.name
-        )
+        self.context.run_dir = self.get_output_dir(iteration_name=self.iteration.name)
+
+        # Set the context paths, after defining the run_dir
+        self.context._setup_path()
 
         # If the prompt is not found, the default prompt is the naive one
-        prompt_class = PROMPTS_DICT.get(str(self.config.prompt), NaivePrompt)
-        self.prompt = prompt_class()
+        prompt_class = PROMPTS_DICT.get(
+            str(self.context.iteration_config.prompt), NaivePrompt
+        )
+        self.context.prompt_template = prompt_class()
+
+        # Initialize the directories
+        self.context._setup_dir()
+
+        # Create Symlinks for CodeQL required files
+        self._setup_queries()
 
     def run(self) -> None:
-        # Runs context queries
-        InternalFunctionRunner(config=self.codeql_config).execute(
-            output_dir=self.output_dir
-        )
-        ExternalApisRunner(config=self.codeql_config).execute(
-            output_dir=self.output_dir
-        )
+        # The steps are executed in this order
+        pipeline_steps: list[PipelineStep] = [
+            ContextExtractionStep(),
+            ProcessDataStep(),
+            LLMAnalysisStep(),
+            GenerateQLLStep(),
+            RunScanStep(),
+        ]
 
-        # We get the "Processor" instance from the registry
-        basic_processor: type[DataProcessor] = PROCESSOR_REGISTRY.get(
-            str(self.config.processor), BasicCSVProcessing
-        )
-
-        # Get the context data in JSON
-        context_data: str = basic_processor().process(working_dir=self.output_dir)
-        basic_processor().write_file(self.output_dir, data=context_data)
-
-        llm_config = LLMConfig(
-            output_dir=self.output_dir,
-            model=self.config.model,
-            prompt=self.prompt.render(str(context_data)),
-            temperature=self.config.temperature,
-            top_p=self.config.top_p,
-            max_token=self.config.max_tokens,
-        )
-
-        llm_client = LLMClient(config=llm_config)
-        llm_response = llm_client.send()
-        llm_client.save(content=llm_response)
-
-        # Generate qll query
-        generate_qll_file(working_dir=self.output_dir)
-
-        # Scan code
-        DetectCWEsRunner(config=self.codeql_config).execute(output_dir=self.output_dir)
+        # Execute the steps one by one
+        RunSteps(cfg=self.context, steps_list=pipeline_steps).execute_steps()
 
 
 if __name__ == "__main__":
@@ -167,7 +131,7 @@ if __name__ == "__main__":
         path=Path("./configs/iterations.yaml"), name="naive"
     )
     # Create the CodeQL config
-    config = CodeQLConfig(
+    codeql_config = CodeQLConfig(
         working_dir=Path("./data/test/"),
         codeql_language="python",
         report_format="csv",
@@ -175,7 +139,9 @@ if __name__ == "__main__":
             "/home/drapsague/Devoteam/4_CodeQL/zero_to_hero/Playground/python/test-python/"
         ),
     )
-    DatabaseCreator(config=config).execute()
+    DatabaseCreator(config=codeql_config).execute()
 
-    test = PipelineCIR(iteration=iteration, codeql_config=config)
+    context = PipelineContext(codeql_config=codeql_config)
+
+    test = PipelineCIR(context=context, iteration=iteration)
     test.run()

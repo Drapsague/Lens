@@ -1,7 +1,6 @@
 from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
 from pathlib import Path
-import uuid
 import subprocess
 
 
@@ -24,20 +23,6 @@ class CodeQLConfig:
     def db_path(self) -> Path:
         # Use it like: self.config.db_path
         return self.working_dir / "db"
-
-    @property
-    def runs_path(self) -> Path:
-        # Use it like: self.config.runs_path
-        return self.working_dir / "runs"
-
-    def _create_run_id(self, iteration_name: str = "iteration") -> str:
-        """Generate unique UUID to name runs folder"""
-        unique_id = uuid.uuid4().hex[:8]
-        return f"{iteration_name}_{unique_id}"
-
-    def get_output_dir(self, iteration_name: str = "iteration") -> Path:
-        folder_name: str = self._create_run_id(iteration_name)
-        return self.runs_path / folder_name
 
 
 @dataclass
