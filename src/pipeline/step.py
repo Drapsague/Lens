@@ -16,7 +16,7 @@ from src.processing import (
     DataProcessor,
     BasicCSVProcessing,
 )
-from src.pipeline import LoadConfig
+from .config import LoadConfig
 
 
 @dataclass

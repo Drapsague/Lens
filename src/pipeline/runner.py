@@ -3,10 +3,6 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 import uuid
 
-from src.codeql import (
-    CodeQLConfig,
-    DatabaseCreator,
-)
 from src.llm import PROMPTS_DICT, NaivePrompt
 
 from src.pipeline import (
@@ -125,24 +121,3 @@ class PipelineCIR(PipelineRunner):
 
         # Execute the steps one by one
         RunSteps(cfg=self.context, steps_list=pipeline_steps).execute_steps()
-
-
-if __name__ == "__main__":
-    iteration: Iteration = Iteration(
-        path=Path("./configs/iterations.yaml"), name="naive"
-    )
-    # Create the CodeQL config
-    codeql_config = CodeQLConfig(
-        working_dir=Path("./data/test/"),
-        codeql_language="python",
-        report_format="csv",
-        source_root=Path(
-            "/home/drapsague/Devoteam/4_CodeQL/zero_to_hero/Playground/python/test-python/"
-        ),
-    )
-    DatabaseCreator(config=codeql_config).execute()
-
-    context = PipelineContext(codeql_config=codeql_config)
-
-    test = PipelineCIR(context=context, iteration=iteration)
-    test.run()

@@ -10,6 +10,8 @@ from .step import (
 )
 from .config import LoadConfig
 
+from .runner import Iteration, PipelineCIR
+
 __all__ = [
     "PipelineContext",
     "PipelineStep",
@@ -20,4 +22,6 @@ __all__ = [
     "GenerateQLLStep",
     "RunScanStep",
     "LoadConfig",
+    "Iteration",
+    "PipelineCIR",
 ]
