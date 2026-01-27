@@ -27,14 +27,47 @@ class Iteration:
     path: Path
     name: str
 
+@dataclass
+class PipelineContext:
+    """Define every path or static variable name for a given pipeline"""
+
+    output_dir: Path
+    run_dir: Path = field(init=False)
+    report_dir: Path = field(init=False)
+    clean_data_path: Path = field(init=False)
+    qll_path: Path = field(init=False)
+    queries_dir: Path = field(init=False)
+    llm_response_path: Path = field(init=False)
+
+    def __post_init__(self):
+        self.run_dir = self.output_dir # Might be useless
+        self.report_dir = self.output_dir
+        self.queries_dir = self.output_dir / "queries"
+        self.clean_data_path = self.output_dir / "clean_context_data.json"
+        self.qll_path = self.queries_dir / "custom_query.qll"
+        self.llm_response_path = self.output_dir / "llm_response.json"
+
+    def _setup(self):
+        """
+        Creating the iteration folders
+            /[iteration_name]_uuid # output_dir
+                /queries           # queries_dir
+        """
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.queries_dir.mkdir(parents=True, exist_ok=True)
+
 
 @dataclass
 class PipelineRunner(ABC):
     """Base class: In charge of anything related to a pipeline"""
 
-    iteration: Iteration
+    context: PipelineContext
 
-    def setup_queries(self, run_dir: Path) -> None:
+    # File needed to scan the code
+    REQUIRED_QUERY_FILES: list[str] = ["detect_cwes.ql", "codeql-pack.lock.yml", "qlpack.yml"]
+    SHARED_QUERIES_FILES_DIR: Path = Path("queries")
+
+    def _setup_queries(self, run_dir: Path) -> None:
         """
         Create a symlink in the created folder fo the detect query
         queries/detect_cwes.ql
@@ -42,8 +75,10 @@ class PipelineRunner(ABC):
                 qlpack.yml           # MANDATORY
 
         """
-        queries = run_dir / "queries"
-        queries.mkdir(parents=True, exist_ok=True)
+
+        for files in self.REQUIRED_QUERY_FILES:
+            shared_file: Path = self.SHARED_QUERIES_FILES_DIR / 
+
 
         shared_query = Path("queries/detect_cwes.ql").resolve()
         shared_conf_file_1 = Path("queries/codeql-pack.lock.yml").resolve()
@@ -74,9 +109,11 @@ class PipelineRunner(ABC):
 class PipelineCIR(PipelineRunner):
     """In charge of building the pipeline for the CIR"""
 
+    iteration: Iteration
     codeql_config: CodeQLConfig
     config: LoadConfig = field(init=False)
     output_dir: Path = field(init=False)
+
     prompt: Prompts = field(init=False)
 
     def __post_init__(self):

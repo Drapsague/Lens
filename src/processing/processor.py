@@ -8,8 +8,8 @@ import json
 class DataProcessor(ABC):
     """Abstract Class that holds different data processing classes"""
 
-    def write_file(self, path: Path, data):
-        with open(path / "clean_context_data.json", "w", encoding="utf-8") as f:
+    def write_file(self, output_path: Path, data):
+        with open(output_path, "w", encoding="utf-8") as f:
             f.write(data)
 
     @abstractmethod
