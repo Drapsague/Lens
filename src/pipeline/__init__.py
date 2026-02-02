@@ -10,7 +10,7 @@ from .step import (
 )
 from .config import LoadConfig
 
-from .runner import Iteration, PipelineCIR
+from .runner import Iteration, PipelineTest, PipelineTarget
 
 __all__ = [
     "PipelineContext",
@@ -23,5 +23,6 @@ __all__ = [
     "RunScanStep",
     "LoadConfig",
     "Iteration",
-    "PipelineCIR",
+    "PipelineTest",
+    "PipelineTarget",
 ]

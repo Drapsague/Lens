@@ -83,8 +83,8 @@ class PipelineRunner(ABC):
 
 
 @dataclass
-class PipelineCIR(PipelineRunner):
-    """In charge of building the pipeline for the CIR"""
+class PipelineTarget(PipelineRunner):
+    """In charge of building the pipeline for the CIR target phase"""
 
     def __post_init__(self):
         # Load the config from the YAML file
@@ -117,6 +117,45 @@ class PipelineCIR(PipelineRunner):
             LLMAnalysisStep(),
             GenerateQLLStep(),
             RunScanStep(),
+        ]
+
+        # Execute the steps one by one
+        RunSteps(cfg=self.context, steps_list=pipeline_steps).execute_steps()
+
+
+@dataclass
+class PipelineTest(PipelineRunner):
+    """In charge of building the pipeline for the CIR test phase"""
+
+    def __post_init__(self):
+        # Load the config from the YAML file
+        self.context.iteration_config = LoadConfig.from_yaml(
+            path=self.iteration.path, iteration_name=self.iteration.name
+        )
+        # We generate a unique folder name for this iteration
+        self.context.run_dir = self.get_output_dir(iteration_name=self.iteration.name)
+
+        # Set the context paths, after defining the run_dir
+        self.context._setup_path()
+
+        # If the prompt is not found, the default prompt is the naive one
+        prompt_class = PROMPTS_DICT.get(
+            str(self.context.iteration_config.prompt), NaivePrompt
+        )
+        self.context.prompt_template = prompt_class()
+
+        # Initialize the directories
+        self.context._setup_dir()
+
+        # Create Symlinks for CodeQL required files
+        self._setup_queries()
+
+    def run(self) -> None:
+        # The steps are executed in this order
+        pipeline_steps: list[PipelineStep] = [
+            ContextExtractionStep(),
+            ProcessDataStep(),
+            LLMAnalysisStep(),
         ]
 
         # Execute the steps one by one

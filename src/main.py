@@ -2,7 +2,7 @@ import argparse
 import textwrap
 from pathlib import Path
 
-from src.pipeline import Iteration, PipelineCIR, PipelineContext
+from src.pipeline import Iteration, PipelineTest, PipelineTarget, PipelineContext
 from src.codeql import CodeQLConfig, DatabaseCreator
 
 
@@ -67,7 +67,14 @@ def main() -> None:
     context = PipelineContext(codeql_config=codeql_config)
 
     # Create a Pipeline
-    pipeline = PipelineCIR(context=context, iteration=iteration)
+    # If the working dir is data/test we use the Test Pipeline
+    if "test" in args.working_dir:
+        pipeline = PipelineTest(context=context, iteration=iteration)
+
+    # If the working dir is data/target we use the Target Pipeline
+    else:
+        pipeline = PipelineTarget(context=context, iteration=iteration)
+
     pipeline.run()
 
 
