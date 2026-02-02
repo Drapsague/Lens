@@ -42,7 +42,7 @@ class LLMClient:
                 max_tokens=self.config.max_token,
             )
             content = completion.choices[0].message.content
-            print(self._to_json(str(content)))
+            # print(self._to_json(str(content)))
 
         except OpenAIError as e:
             content = "Error"

@@ -182,8 +182,8 @@ class ExternalApisRunner(QueryExecutor):
 
 class DatabaseQueryExecutor(CodeQLOperator):
     """
-    Run ANY CodeQL database query, usually context related query
-    codeql database ...
+    Run CodeQL database analyze query, usually context related query
+    codeql database analyze...
 
     """
 
@@ -202,7 +202,9 @@ class DatabaseQueryExecutor(CodeQLOperator):
         # Creating the folder if it does not exist
         Path(output_dir).mkdir(parents=True, exist_ok=True)
 
+        # Need to change hardcoded .sarif !!
         output_file: str = f"{str(output_dir)}/{self.query.name}.sarif"
+
         # Setting the output file attribute
         self.output_file = Path(output_file)
 
@@ -216,6 +218,7 @@ class DatabaseQueryExecutor(CodeQLOperator):
             f"--output={output_file}",
             "--threads=4",
             "--ram=4096",
+            "--rerun",  # To avoid using cached result
         ]
 
         self._run(database_analyze)

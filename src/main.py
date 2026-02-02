@@ -12,7 +12,7 @@ def main() -> None:
         description="Lens is a SAST tool designed to detect context-based vulnerabilties",
         epilog=textwrap.dedent("""\
             Example:
-              python3 -m src.main --config_file configs/iterations.yaml --iteration_name naive --working_dir data/test --source_root /path/to/code/
+              python3 -m src.main --config_file configs/iterations.yaml --iteration_name naive --working_dir data/test --source_root /fullpath/to/code/
 
             """),
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -37,12 +37,14 @@ def main() -> None:
     parser.add_argument(
         "--report_format",
         required=False,
+        default="csv",
         help="For now useless, only CSV",
     )
     parser.add_argument(
         "-l",
         "--language",
         required=False,
+        default="python",
         help="The programming language of your code, ONLY Python for now",
     )
 

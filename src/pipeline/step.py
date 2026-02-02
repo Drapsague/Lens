@@ -21,13 +21,11 @@ from .config import LoadConfig
 
 @dataclass
 class PipelineContext:
-    """Define every path or static variable name for a given pipeline"""
+    """Define every path or static variables for a given pipeline"""
 
     codeql_config: CodeQLConfig
 
     iteration_config: LoadConfig = field(init=False)
-
-    # Need to rework
     run_dir: Path = field(init=False)
 
     clean_data_path: Path = field(init=False)
@@ -40,7 +38,7 @@ class PipelineContext:
     QUERIES_DIR: Path = Path("queries")
     CLEAN_DATA_FILE: Path = Path("clean_context_data.json")
     QLL_FILE: Path = Path("custom_query.qll")
-    LLM_RESPONSE_FILE: Path = Path("llm_repsonse.json")
+    LLM_RESPONSE_FILE: Path = Path("llm_response.json")
 
     def _setup_path(self):
         """
@@ -163,7 +161,7 @@ class GenerateQLLStep(PipelineStep):
     def execute(self, cfg: PipelineContext) -> None:
         print("[*] Generating the QLL query")
         generate_qll_file(
-            input_file_path=cfg.clean_data_path, output_file_path=cfg.qll_path
+            input_file_path=cfg.llm_response_path, output_file_path=cfg.qll_path
         )
 
 
