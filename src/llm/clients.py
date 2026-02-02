@@ -73,11 +73,10 @@ class LLMClient:
         except json.JSONDecodeError:
             pass
 
-        clean_content = content.strip()
-        if "```json" in clean_content:
-            clean_content = clean_content.split("```json")[1].split("```")[0]
-        elif "```" in clean_content:
-            clean_content = clean_content.split("```")[1].split("```")[0]
+        if "```json" in content:
+            content = content.split("```json")[1].split("```")[0]
+        elif "```" in content:
+            content = content.split("```")[1].split("```")[0]
 
         try:
             return json.dumps(json.loads(content.strip()), indent=2)

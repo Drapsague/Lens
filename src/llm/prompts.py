@@ -69,9 +69,9 @@ Your output must be strictly in the following JSON format:
   ]
 }}
 
-Do not include hypothetical or unverified sources or sinks — only output what you can confirm from the code.
+**Do not say anything else. Do not wrap the output in a code block. Do not include any text before or after. Output must be a raw JSON object only.**
 
-Assistant: Understood. As an Application Security Engineer, I will thoroughly examine the provided code representations to identify confirmed user-controlled sources and dangerous sinks. I will trace both intra-procedural and inter-procedural data flows to determine whether untrusted input can reach sensitive operations. Only those elements I can confirm based on the given code will be included in the final output. I will present my findings using the specified JSON format, listing confirmed sources (function name and parameter) and confirmed sinks (fully qualified dangerous functions). Please provide the code you'd like me to analyze.
+Assistant: Understood. As an Application Security Engineer, I will thoroughly examine the provided code representations to identify confirmed user-controlled sources and dangerous sinks. I will trace both intra-procedural and inter-procedural data flows to determine whether untrusted input can reach sensitive operations. Only those elements I can confirm based on the given code will be included in the final output. I will output my findings using raw JSON object ONLY, listing confirmed sources (function name and parameter) and confirmed sinks (fully qualified dangerous functions). Please provide the code you'd like me to analyze.
 
 User: Here is the code you must analyze
 
