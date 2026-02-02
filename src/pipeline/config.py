@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 import yaml
 
@@ -10,10 +10,12 @@ class LoadConfig:
     data: str
     processor: str
     prompt: str
-    model: str
     temperature: float
     top_p: float
     max_tokens: int
+    models: list[str]
+
+    model: str = field(init=False)
 
     @classmethod
     def from_yaml(cls, path: Path, iteration_name: str) -> "LoadConfig":
@@ -33,6 +35,14 @@ class LoadConfig:
             try:
                 config_file = yaml.safe_load(f)
                 params = config_file["iterations"][iteration_name]
+
+                # To handle both 'model' (str) and 'models' list[str]
+                models = params.pop("models", [])
+                if "model" in params:
+                    models.append(params.pop("model"))
+
+                params["models"] = models
+
                 # Load all the params at once
                 # The keys must have the same name as the class attributes
                 return cls(**params)  # OP

@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
 from pathlib import Path
+from typing import Generator
 
 from src.llm import Prompts, LLMClient, LLMConfig
 
@@ -25,7 +26,7 @@ class PipelineContext:
 
     codeql_config: CodeQLConfig
 
-    iteration_config: LoadConfig = field(init=False)
+    iteration_config: Generator[LoadConfig, None, None] = field(init=False)
     run_dir: Path = field(init=False)
 
     clean_data_path: Path = field(init=False)
