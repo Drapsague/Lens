@@ -1,4 +1,5 @@
 import argparse
+import textwrap
 from pathlib import Path
 
 from src.pipeline import Iteration, PipelineCIR, PipelineContext
@@ -6,7 +7,16 @@ from src.codeql import CodeQLConfig, DatabaseCreator
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run a Lens pipeline")
+    parser = argparse.ArgumentParser(
+        prog="Lens_CLI",
+        description="Lens is a SAST tool designed to detect context-based vulnerabilties",
+        epilog=textwrap.dedent("""\
+            Example:
+              python3 -m src.main --config_file configs/iterations.yaml --iteration_name naive --working_dir data/test --source_root /path/to/code/
+
+            """),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
     parser.add_argument("--config_file", required=True, help="The YAML config file")
     parser.add_argument(
         "--iteration_name",
@@ -26,13 +36,13 @@ def main() -> None:
     )
     parser.add_argument(
         "--report_format",
-        required=True,
+        required=False,
         help="For now useless, only CSV",
     )
     parser.add_argument(
         "-l",
         "--language",
-        required=True,
+        required=False,
         help="The programming language of your code, ONLY Python for now",
     )
 
@@ -48,10 +58,13 @@ def main() -> None:
         report_format=args.report_format,
         source_root=Path(args.source_root),
     )
+    # Create the CodeQL DB
     DatabaseCreator(config=codeql_config).execute()
 
+    # Set the pipeline's context
     context = PipelineContext(codeql_config=codeql_config)
 
+    # Create a Pipeline
     pipeline = PipelineCIR(context=context, iteration=iteration)
     pipeline.run()
 
