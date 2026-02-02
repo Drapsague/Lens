@@ -1,0 +1,5 @@
+ID,File,Function,Vulnerability Class,Source (User Input),Sink (Dangerous Execution)
+1,app.py,download,IDOR / BOLA (File Exposure),username (URL Parameter via @app.route),flask.send_file()
+2,utils.py,safe_unpickle,Unsafe Deserialization (RCE),data (Function Argument),pickle.Unpickler(...).load()
+3,app.py,notify,SSRF (Network Injection),username (URL Parameter),requests.get()
+4,profile.html,form,CSRF,N/A (HTML Form),N/A (Missing Token)
