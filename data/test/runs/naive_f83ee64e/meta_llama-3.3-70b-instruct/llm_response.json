@@ -1,0 +1,56 @@
+{
+  "confirmed_sinks": [
+    "os.system",
+    "subprocess.Popen",
+    "subprocess.call",
+    "django.db.connection.cursor.execute",
+    "builtins.exec",
+    "builtins.eval"
+  ],
+  "confirmed_sources": [
+    {
+      "function": "show_user",
+      "parameter": "request"
+    },
+    {
+      "function": "show_user",
+      "parameter": "username"
+    },
+    {
+      "function": "com1",
+      "parameter": ""
+    },
+    {
+      "function": "com2",
+      "parameter": ""
+    },
+    {
+      "function": "path_exists",
+      "parameter": ""
+    },
+    {
+      "function": "show_user",
+      "parameter": ""
+    },
+    {
+      "function": "code_ex",
+      "parameter": ""
+    },
+    {
+      "function": "com1",
+      "parameter": "flask.request.args.get"
+    },
+    {
+      "function": "com2",
+      "parameter": "flask.request.args.get"
+    },
+    {
+      "function": "path_exists",
+      "parameter": "flask.request.args.get"
+    },
+    {
+      "function": "code_ex",
+      "parameter": "flask.request.args.get"
+    }
+  ]
+}

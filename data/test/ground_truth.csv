@@ -1,0 +1,8 @@
+ID,File,Function,Vulnerability Class,Source (User Input),Sink (Dangerous Execution)
+1,code_i.py,code_ex,Injection de Code,request.args.get('code'),"exec(), eval()"
+2,com_i.py,com1,Injection Commande,request.args.get('files'),os.system()
+3,com_i.py,com2,Injection Commande,request.args.get('files'),subprocess.Popen()
+4,com_i.py,path_exists,Injection Commande,request.args.get('path'),os.system()
+5,sql_flask_i.py,show_user,Injection SQL,request.args.get('username'),"cursor.execute(), user.objects.raw()"
+6,sql_i.py,show_user,Injection SQL,username,cursor.execute()
+

@@ -1,0 +1,16 @@
+{
+  "confirmed_sinks": [
+    "os.system",
+    "subprocess.call"
+  ],
+  "confirmed_sources": [
+    {
+      "function": "run",
+      "parameter": "username"
+    },
+    {
+      "function": "process",
+      "parameter": "filename"
+    }
+  ]
+}

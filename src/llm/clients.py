@@ -64,15 +64,32 @@ class LLMClient:
             self.config.output_dir / "llm_response.json", "w", encoding="utf-8"
         ) as f:
             # Write the llm response in JSON
-            f.write(self._to_json(content))
+            f.write(self._to_json(str(content)))
 
     def _to_json(self, content: str):
         try:
             return json.dumps(json.loads(content), indent=2)
 
         except json.JSONDecodeError:
-            if "```json" in content:
-                content = content.split("```json")[1].split("```")[0]
-            elif "```" in content:
-                content = content.split("```")[1].split("```")[0]
+            pass
+
+        clean_content = content.strip()
+        if "```json" in clean_content:
+            clean_content = clean_content.split("```json")[1].split("```")[0]
+        elif "```" in clean_content:
+            clean_content = clean_content.split("```")[1].split("```")[0]
+
+        try:
             return json.dumps(json.loads(content.strip()), indent=2)
+        except json.JSONDecodeError:
+            pass
+
+        print("[!] Warning: LLM output was not valid JSON. Saving raw content.")
+        return json.dumps(
+            {
+                "error": True,
+                "message": "LLM output parsing failed",
+                "raw_content": content,
+            },
+            indent=2,
+        )

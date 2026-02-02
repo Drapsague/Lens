@@ -1,0 +1,364 @@
+{
+  "internal_functions": [
+    {
+      "filename": "sql_i.py",
+      "linenumber": 5,
+      "funcname": "show_user",
+      "funcparams": "request, username",
+      "decorators": "",
+      "docstring": ""
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 11,
+      "funcname": "com1",
+      "funcparams": "",
+      "decorators": "app.route",
+      "docstring": ""
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 18,
+      "funcname": "com2",
+      "funcparams": "",
+      "decorators": "app.route",
+      "docstring": ""
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 25,
+      "funcname": "path_exists",
+      "funcparams": "",
+      "decorators": "app.route",
+      "docstring": "\n    os.path.exists is our sanitizer\n    "
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 13,
+      "funcname": "show_user",
+      "funcparams": "",
+      "decorators": "app.route",
+      "docstring": ""
+    },
+    {
+      "filename": "code_i.py",
+      "linenumber": 7,
+      "funcname": "code_ex",
+      "funcparams": "",
+      "decorators": "app.route",
+      "docstring": ""
+    }
+  ],
+  "external_apis": [
+    {
+      "filename": "sql_i.py",
+      "linenumber": 1,
+      "extapis": "django.conf.urls.url"
+    },
+    {
+      "filename": "sql_i.py",
+      "linenumber": 2,
+      "extapis": "django.db.connection"
+    },
+    {
+      "filename": "sql_i.py",
+      "linenumber": 5,
+      "extapis": "django.conf.urls.url.1.request"
+    },
+    {
+      "filename": "sql_i.py",
+      "linenumber": 5,
+      "extapis": "django.conf.urls.url.1.username"
+    },
+    {
+      "filename": "sql_i.py",
+      "linenumber": 6,
+      "extapis": "django.db.connection.cursor"
+    },
+    {
+      "filename": "sql_i.py",
+      "linenumber": 8,
+      "extapis": "django.db.connection.cursor.execute"
+    },
+    {
+      "filename": "sql_i.py",
+      "linenumber": 9,
+      "extapis": "django.db.connection.cursor.fetchone"
+    },
+    {
+      "filename": "sql_i.py",
+      "linenumber": 12,
+      "extapis": "django.db.connection.cursor.execute"
+    },
+    {
+      "filename": "sql_i.py",
+      "linenumber": 13,
+      "extapis": "django.db.connection.cursor.fetchone"
+    },
+    {
+      "filename": "sql_i.py",
+      "linenumber": 16,
+      "extapis": "django.db.connection.cursor.execute"
+    },
+    {
+      "filename": "sql_i.py",
+      "linenumber": 17,
+      "extapis": "django.db.connection.cursor.fetchone"
+    },
+    {
+      "filename": "sql_i.py",
+      "linenumber": 20,
+      "extapis": "django.db.connection.cursor.execute"
+    },
+    {
+      "filename": "sql_i.py",
+      "linenumber": 21,
+      "extapis": "django.db.connection.cursor.fetchone"
+    },
+    {
+      "filename": "sql_i.py",
+      "linenumber": 24,
+      "extapis": "django.conf.urls.url"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 5,
+      "extapis": "flask.Flask"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 5,
+      "extapis": "flask.request"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 7,
+      "extapis": "flask.Flask"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 10,
+      "extapis": "flask.Flask.route"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 12,
+      "extapis": "flask.request.args"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 12,
+      "extapis": "flask.request.args.get"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 14,
+      "extapis": "os.system"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 17,
+      "extapis": "flask.Flask.route"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 19,
+      "extapis": "flask.request.args"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 19,
+      "extapis": "flask.request.args.get"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 21,
+      "extapis": "builtins.True"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 21,
+      "extapis": "subprocess.Popen"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 24,
+      "extapis": "flask.Flask.route"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 29,
+      "extapis": "flask.request.args"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 29,
+      "extapis": "flask.request.args.get"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 30,
+      "extapis": "os.path"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 30,
+      "extapis": "os.path.exists"
+    },
+    {
+      "filename": "com_i.py",
+      "linenumber": 31,
+      "extapis": "os.system"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 1,
+      "extapis": "django.db.models"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 1,
+      "extapis": "django.db.connection"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 2,
+      "extapis": "django.db.models.expressions.RawSQL"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 3,
+      "extapis": "flask.Flask"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 3,
+      "extapis": "flask.request"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 5,
+      "extapis": "flask.Flask"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 8,
+      "extapis": "django.db.models.Model"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 12,
+      "extapis": "flask.Flask.route"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 14,
+      "extapis": "flask.request.args"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 14,
+      "extapis": "flask.request.args.get"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 15,
+      "extapis": "django.db.connection.cursor"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 17,
+      "extapis": "django.db.connection.cursor.execute"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 18,
+      "extapis": "django.db.models.Model.objects"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 18,
+      "extapis": "django.db.models.Model.objects.raw"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 21,
+      "extapis": "django.db.connection.cursor.execute"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 24,
+      "extapis": "django.db.models.Model.objects"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 24,
+      "extapis": "django.db.models.Model.objects.annotate"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 25,
+      "extapis": "django.db.models.expressions.RawSQL"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 27,
+      "extapis": "django.db.models.Model.objects"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 27,
+      "extapis": "django.db.models.Model.objects.raw"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 28,
+      "extapis": "django.db.models.Model.objects"
+    },
+    {
+      "filename": "sql_flask_i.py",
+      "linenumber": 28,
+      "extapis": "django.db.models.Model.objects.extra"
+    },
+    {
+      "filename": "code_i.py",
+      "linenumber": 1,
+      "extapis": "flask.Flask"
+    },
+    {
+      "filename": "code_i.py",
+      "linenumber": 1,
+      "extapis": "flask.request"
+    },
+    {
+      "filename": "code_i.py",
+      "linenumber": 3,
+      "extapis": "flask.Flask"
+    },
+    {
+      "filename": "code_i.py",
+      "linenumber": 6,
+      "extapis": "flask.Flask.route"
+    },
+    {
+      "filename": "code_i.py",
+      "linenumber": 8,
+      "extapis": "flask.request.args"
+    },
+    {
+      "filename": "code_i.py",
+      "linenumber": 8,
+      "extapis": "flask.request.args.get"
+    },
+    {
+      "filename": "code_i.py",
+      "linenumber": 9,
+      "extapis": "builtins.exec"
+    },
+    {
+      "filename": "code_i.py",
+      "linenumber": 10,
+      "extapis": "builtins.eval"
+    }
+  ]
+}
