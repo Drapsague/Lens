@@ -43,12 +43,20 @@ class LLMClient:
             )
             content = completion.choices[0].message.content
             # print(self._to_json(str(content)))
+            return str(content)
 
         except OpenAIError as e:
-            content = "Error"
-            raise e
+            print(f"\n[!] Error with model {self.config.model}: {str(e)}")
 
-        return str(content)
+            # Safe fallback
+            return json.dumps(
+                {
+                    "error": True,
+                    "message": str(e),
+                    "confirmed_sources": [],
+                    "confirmed_sinks": [],
+                }
+            )
 
     def save(self, content: str) -> None:
         """Function to save the LLM response in the output directory, in JSON"""
