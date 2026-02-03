@@ -1,0 +1,43 @@
+{
+  "confirmed_sinks": [
+    "subprocess.Popen",
+    "os.system",
+    "os.path.exists",
+    "os.path.exists",
+    "os.path.exists",
+    "os.path.exists",
+    "os.system",
+    "os.system",
+    "os.system"
+  ],
+  "confirmed_sources": [
+    {
+      "function": "run_tool",
+      "parameter": "tool_name"
+    },
+    {
+      "function": "show_user",
+      "parameter": "username"
+    },
+    {
+      "function": "com1",
+      "parameter": ""
+    },
+    {
+      "function": "com2",
+      "parameter": ""
+    },
+    {
+      "function": "path_exists",
+      "parameter": ""
+    },
+    {
+      "function": "show_user",
+      "parameter": ""
+    },
+    {
+      "function": "code_ex",
+      "parameter": ""
+    }
+  ]
+}

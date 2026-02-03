@@ -1,6 +1,0 @@
-{
-  "error": true,
-  "message": "Error code: 500 - {'object': 'error', 'message': 'Error during inference of request cmpl-dd4555187b1d4737bec1449b8df5d320 -- Encountered an error when fetching new request: Prompt length (4244) exceeds maximum input length (4095). Set log level to info and check TRTGptModel logs for how maximum input length is set (/home/jenkins/agent/workspace/LLM/main/L0_PostMerge/llm/cpp/include/tensorrt_llm/batch_manager/llmRequest.h:244)\\n1       0x7f9635b91eda /code/nim-llm/python/vllm-nvext/.venv/lib/python3.10/site-packages/tensorrt_llm/libs/libtensorrt_llm.so(+0x75eeda) [0x7f9635b91eda]\\n2       0x7f96378a1ad7 tensorrt_llm::executor::Executor::Impl::executionLoop() + 647\\n3       0x7f98c089e253 /usr/lib/x86_64-linux-gnu/libstdc++.so.6(+0xdc253) [0x7f98c089e253]\\n4       0x7f98c2814ac3 /usr/lib/x86_64-linux-gnu/libc.so.6(+0x94ac3) [0x7f98c2814ac3]\\n5       0x7f98c28a6a40 /usr/lib/x86_64-linux-gnu/libc.so.6(+0x126a40) [0x7f98c28a6a40]', 'type': 'InternalServerError', 'param': None, 'code': 500}",
-  "confirmed_sources": [],
-  "confirmed_sinks": []
-}

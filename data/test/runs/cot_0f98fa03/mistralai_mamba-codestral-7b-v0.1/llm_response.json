@@ -1,0 +1,5 @@
+{
+  "error": true,
+  "message": "LLM output parsing failed",
+  "raw_content": "{\n  \"confirmed_sinks\": [\n    \"django.db.connection.cursor.execute\",\n    \"subprocess.Popen\",\n    \"os.system\",\n    \"os."
+}

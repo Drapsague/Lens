@@ -261,8 +261,9 @@ Follow this structure:
 
 3. Try to correlate function parameters (sources) to the same file where dangerous APIs (sinks) appear.
 
-After this step-by-step analysis, return only the final JSON object in this format:
+**Think step-by-step internally before answering, but DO NOT include your reasoning in the output.**
 
+Your final output must be ONLY the following JSON structure:
 {{  
   "confirmed_sinks": [ list of dangerous sink function names ],
   "confirmed_sources": [ {{ "function": "...", "parameter": "..." }} ]
@@ -293,10 +294,6 @@ Input:
   ]
 }}
 
-Chain-of-Thought:
-- The function `get_user_by_name` has a parameter `name`, which likely comes from user input via an HTTP request.
-- The API `django.db.connection.cursor` is a known sink because it executes SQL queries and may be vulnerable to injection.
-- Since both the source and the sink occur in the same file, there may be a data flow from input to database.
 
 Output:
 {{
@@ -336,11 +333,6 @@ Input:
   ]
 }}
 
-Chain-of-Thought:
-- The function `run_tool` accepts a parameter named `tool_name`, which is likely user-controlled input coming from a web request.
-- The external API used is `subprocess.Popen`, which is a known dangerous sink. It can lead to command injection if user input is passed without sanitization.
-- Both the source parameter and the sink function appear in the same file (`runner.py`), suggesting a possible connection between input and the dangerous call.
-
 Output:
 {{
   "confirmed_sinks": [
@@ -361,7 +353,7 @@ Output:
 Input:
 {data}
 
-Chain-of-Thought:
+Output:
 """
 
 

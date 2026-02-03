@@ -1,8 +1,13 @@
 {
   "confirmed_sinks": [
     "django.db.connection.cursor.execute",
+    "django.db.connection.cursor.fetchone",
     "os.system",
     "subprocess.Popen",
+    "flask.request.args.get",
+    "django.db.models.expressions.RawSQL",
+    "django.db.models.Model.objects.raw",
+    "django.db.models.Model.objects.extra",
     "builtins.exec",
     "builtins.eval"
   ],
@@ -13,19 +18,23 @@
     },
     {
       "function": "com1",
-      "parameter": ""
+      "parameter": "request"
     },
     {
       "function": "com2",
-      "parameter": ""
+      "parameter": "request"
     },
     {
       "function": "path_exists",
-      "parameter": ""
+      "parameter": "request"
+    },
+    {
+      "function": "show_user",
+      "parameter": "request"
     },
     {
       "function": "code_ex",
-      "parameter": ""
+      "parameter": "request"
     }
   ]
 }

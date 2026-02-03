@@ -1,6 +1,6 @@
 {
   "confirmed_sinks": [
-    "django.db.connection.cursor",
+    "django.db.connection.cursor.execute",
     "os.system",
     "subprocess.Popen",
     "builtins.exec",
@@ -21,6 +21,10 @@
     },
     {
       "function": "show_user",
+      "parameter": "flask.request.args.get"
+    },
+    {
+      "function": "code_ex",
       "parameter": "flask.request.args.get"
     }
   ]

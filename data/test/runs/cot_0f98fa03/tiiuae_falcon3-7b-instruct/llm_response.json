@@ -1,6 +1,5 @@
 {
   "confirmed_sinks": [
-    "django.db.connection.cursor.execute",
     "os.system",
     "subprocess.Popen",
     "builtins.exec",
@@ -12,7 +11,19 @@
       "parameter": "username"
     },
     {
-      "function": "show_user",
+      "function": "com1",
+      "parameter": "request"
+    },
+    {
+      "function": "com2",
+      "parameter": "request"
+    },
+    {
+      "function": "path_exists",
+      "parameter": "path"
+    },
+    {
+      "function": "code_ex",
       "parameter": "request"
     }
   ]

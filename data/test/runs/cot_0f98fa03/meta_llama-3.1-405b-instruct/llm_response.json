@@ -1,14 +1,14 @@
 {
   "confirmed_sinks": [
-    "django.db.connection.cursor",
-    "django.db.connection.cursor.execute",
+    "os.system",
     "subprocess.Popen",
+    "django.db.connection.cursor.execute",
     "builtins.exec",
     "builtins.eval"
   ],
   "confirmed_sources": [
     {
-      "function": "get_user_by_name",
+      "function": "show_user",
       "parameter": "username"
     }
   ]
