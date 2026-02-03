@@ -79,8 +79,158 @@ User: Here is the code you must analyze
 """
 
 
+@dataclass
+class FewShot(Prompts):
+    def render(self, data: str) -> str:
+        return f"""
+You are an expert code analysis assistant specialized in application security. 
+You are given structured data about internal functions and external APIs used in a codebase. 
+
+Your task is to correlate internal function parameters and API usage to identify:
+
+  - Sources: function parameters that may receive user-controlled input 
+             (e.g., `filename`, `query`, `input`, etc.)
+
+  - Sinks: dangerous or sensitive operations 
+           (e.g., `eval`, `exec`, `os.system`, SQL execution functions, etc.)
+
+**IMPORTANT RULES:**
+  - Only confirm a source or sink if it can be directly inferred from the data.
+  - NEVER invent or assume a source or sink.
+  - Your output must be a JSON object in the following format:
+
+{{  
+  "confirmed_sinks": [ list of dangerous sink function names ],
+  "confirmed_sources": [ {{ "function": "...", "parameter": "..." }} ]
+}}
+
+---
+
+## Example 1: SQL Injection
+
+Input:
+{{
+  "internal_functions": [
+    {{
+      "filename": "user_data.py",
+      "linenumber": 12,
+      "funcname": "get_user_by_name",
+      "funcparams": "request, name",
+      "decorators": "app.route",
+      "docstring": ""
+    }}
+  ],
+  "external_apis": [
+    {{
+      "filename": "user_data.py",
+      "linenumber": 2,
+      "extapis": "django.db.connection.cursor"
+    }}
+  ]
+}}
+
+Output:
+{{
+  "confirmed_sinks": [
+    "django.db.connection.cursor"
+  ],
+  "confirmed_sources": [
+    {{
+      "function": "get_user_by_name",
+      "parameter": "name"
+    }}
+  ]
+}}
+
+---
+
+## Example 2: Command Injection
+
+Input:
+{{
+  "internal_functions": [
+    {{
+      "filename": "run_cmd.py",
+      "linenumber": 6,
+      "funcname": "execute_command",
+      "funcparams": "request, cmd",
+      "decorators": "app.route",
+      "docstring": ""
+    }}
+  ],
+  "external_apis": [
+    {{
+      "filename": "run_cmd.py",
+      "linenumber": 3,
+      "extapis": "os.system"
+    }}
+  ]
+}}
+
+Output:
+{{
+  "confirmed_sinks": [
+    "os.system"
+  ],
+  "confirmed_sources": [
+    {{
+      "function": "execute_command",
+      "parameter": "cmd"
+    }}
+  ]
+}}
+
+---
+
+## Example 3: Unsafe Deserialization
+
+Input:
+{{
+  "internal_functions": [
+    {{
+      "filename": "deserialize.py",
+      "linenumber": 9,
+      "funcname": "load_data",
+      "funcparams": "request, raw_data",
+      "decorators": "",
+      "docstring": ""
+    }}
+  ],
+  "external_apis": [
+    {{
+      "filename": "deserialize.py",
+      "linenumber": 2,
+      "extapis": "pickle.loads"
+    }}
+  ]
+}}
+
+Output:
+{{
+  "confirmed_sinks": [
+    "pickle.loads"
+  ],
+  "confirmed_sources": [
+    {{
+      "function": "load_data",
+      "parameter": "raw_data"
+    }}
+  ]
+}}
+
+
+## Now you must analyze the following:
+
+Input:
+{data}
+
+Output:
+"""
+
+
 # This prompt dict allows us to load these prompts from the YAML config file
 PROMPTS_DICT: dict[str, type[Prompts]] = {
     "naive": NaivePrompt,
     "role_prompting": RolePrompting,
+    "fewshot": FewShot,
 }

@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 import os
 import json
+import re
 
 
 @dataclass
@@ -67,6 +68,8 @@ class LLMClient:
             f.write(self._to_json(str(content)))
 
     def _to_json(self, content: str):
+        # Remove invisible control characters (0x00-0x1F)
+        content = re.sub(r"[\x00-\x09\x0B-\x1F\x7F]", "", content)
         try:
             return json.dumps(json.loads(content), indent=2)
 
@@ -77,8 +80,10 @@ class LLMClient:
                 content = content.split("```")[1].split("```")[0]
             try:
                 return json.dumps(json.loads(content.strip()), indent=2)
-            except json.JSONDecodeError:
-                print("[!] Warning: LLM output was not valid JSON. Saving raw content.")
+            except json.JSONDecodeError as e:
+                print(
+                    f"[!] Warning: LLM output was not valid JSON. Saving raw content: {e}"
+                )
                 return json.dumps(
                     {
                         "error": True,

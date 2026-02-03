@@ -1,0 +1,38 @@
+{
+  "confirmed_sinks": [
+    "django.db.connection.cursor.execute",
+    "os.system",
+    "subprocess.Popen",
+    "builtins.exec",
+    "builtins.eval",
+    "django.db.models.expressions.RawSQL",
+    "django.db.models.Model.objects.raw",
+    "django.db.models.Model.objects.extra"
+  ],
+  "confirmed_sources": [
+    {
+      "function": "show_user",
+      "parameter": "username"
+    },
+    {
+      "function": "com1",
+      "parameter": "request.args.get"
+    },
+    {
+      "function": "com2",
+      "parameter": "request.args.get"
+    },
+    {
+      "function": "path_exists",
+      "parameter": "request.args.get"
+    },
+    {
+      "function": "show_user",
+      "parameter": "request.args.get"
+    },
+    {
+      "function": "code_ex",
+      "parameter": "request.args.get"
+    }
+  ]
+}

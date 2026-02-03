@@ -161,6 +161,7 @@ class PipelineTest(PipelineRunner):
 
         # Save the root dir to avoid recursive dir
         root_dir: Path = self.context.run_dir
+        print(f"\n[*] Running iteration in the: {root_dir}\n")
 
         # Loop through each models in the config
         for model in self.context.iteration_config.models:
