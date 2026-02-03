@@ -71,24 +71,19 @@ class LLMClient:
             return json.dumps(json.loads(content), indent=2)
 
         except json.JSONDecodeError:
-            pass
-
-        if "```json" in content:
-            content = content.split("```json")[1].split("```")[0]
-        elif "```" in content:
-            content = content.split("```")[1].split("```")[0]
-
-        try:
-            return json.dumps(json.loads(content.strip()), indent=2)
-        except json.JSONDecodeError:
-            pass
-
-        print("[!] Warning: LLM output was not valid JSON. Saving raw content.")
-        return json.dumps(
-            {
-                "error": True,
-                "message": "LLM output parsing failed",
-                "raw_content": content,
-            },
-            indent=2,
-        )
+            if "```json" in content:
+                content = content.split("```json")[1].split("```")[0]
+            elif "```" in content:
+                content = content.split("```")[1].split("```")[0]
+            try:
+                return json.dumps(json.loads(content.strip()), indent=2)
+            except json.JSONDecodeError:
+                print("[!] Warning: LLM output was not valid JSON. Saving raw content.")
+                return json.dumps(
+                    {
+                        "error": True,
+                        "message": "LLM output parsing failed",
+                        "raw_content": content,
+                    },
+                    indent=2,
+                )

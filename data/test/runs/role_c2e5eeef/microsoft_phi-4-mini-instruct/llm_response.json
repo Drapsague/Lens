@@ -1,5 +1,0 @@
-{
-  "error": true,
-  "message": "LLM output parsing failed",
-  "raw_content": "```json\n{\n  \"confirmed_sinks\": [\n    \"os.system\",\n    \"subprocess.call\",\n    \"os.system\",\n    \"os.system\"\n  ],\n  \"confirmed_sources\": [\n    {\"function\": \"com1\", \"parameter\": \"username\" },\n    {\"function\": \"com2\", \"parameter\": \"filename\" },\n    {\"function\": \"path_exists\", \"parameter\": \"\" }\n  ]\n}\n```"
-}

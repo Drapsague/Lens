@@ -8,7 +8,6 @@ iterations:
       - meta/llama-3.1-405b-instruct
       - mistralai/mixtral-8x22b-instruct-v0.1
       - mistralai/mamba-codestral-7b-v0.1
-      - microsoft/phi-3-small-128k-instruct
       - microsoft/phi-4-mini-instruct
       - tiiuae/falcon3-7b-instruct
     temperature: 0.1
@@ -23,7 +22,6 @@ iterations:
       - meta/llama-3.1-405b-instruct
       - mistralai/mixtral-8x22b-instruct-v0.1
       - mistralai/mamba-codestral-7b-v0.1
-      - microsoft/phi-3-small-128k-instruct
       - microsoft/phi-4-mini-instruct
       - tiiuae/falcon3-7b-instruct
     temperature: 0.1

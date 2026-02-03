@@ -1,0 +1,38 @@
+{
+  "confirmed_sinks": [
+    "os.system",
+    "subprocess.Popen",
+    "builtins.exec",
+    "builtins.eval"
+  ],
+  "confirmed_sources": [
+    {
+      "function": "show_user",
+      "parameter": "request"
+    },
+    {
+      "function": "show_user",
+      "parameter": "username"
+    },
+    {
+      "function": "com1",
+      "parameter": ""
+    },
+    {
+      "function": "com2",
+      "parameter": ""
+    },
+    {
+      "function": "path_exists",
+      "parameter": ""
+    },
+    {
+      "function": "show_user",
+      "parameter": ""
+    },
+    {
+      "function": "code_ex",
+      "parameter": ""
+    }
+  ]
+}

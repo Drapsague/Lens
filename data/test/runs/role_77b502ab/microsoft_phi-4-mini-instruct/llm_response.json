@@ -1,0 +1,22 @@
+{
+  "confirmed_sinks": [
+    "os.system",
+    "subprocess.call",
+    "os.system",
+    "os.system"
+  ],
+  "confirmed_sources": [
+    {
+      "function": "com1",
+      "parameter": "username"
+    },
+    {
+      "function": "com2",
+      "parameter": "filename"
+    },
+    {
+      "function": "path_exists",
+      "parameter": ""
+    }
+  ]
+}
