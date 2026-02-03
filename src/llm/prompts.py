@@ -81,6 +81,8 @@ User: Here is the code you must analyze
 
 @dataclass
 class FewShot(Prompts):
+    """Class for the Few-Shot prompt"""
+
     def render(self, data: str) -> str:
         return f"""
 You are an expert code analysis assistant specialized in application security. 
@@ -228,9 +230,145 @@ Output:
 """
 
 
+@dataclass
+class ChainOfThought(Prompts):
+    """Class for the COT prompt"""
+
+    def render(self, data: str) -> str:
+        return f"""
+You are an expert code analysis assistant specialized in application security.
+
+You are given structured input that contains:
+  - internal_functions: definitions of internal code functions, including their parameters.
+  - external_apis: external or built-in APIs used in the code.
+
+Your job is to:
+  - Identify function parameters that represent **user-controlled input** (sources).
+  - Identify usage of **dangerous APIs or functions** (sinks).
+  - Explain your reasoning step-by-step before giving the final output.
+
+[!] Only use what is present in the input. Never invent or assume a source or sink.
+
+Follow this structure:
+
+1. For each internal function:
+   - Check if it accepts parameters that look like user input (e.g., 'request', 'filename', 'query', etc.).
+   - Mark these as potential sources.
+
+2. For each external API:
+   - Check if it is a known sink (e.g., os.system, eval, pickle.loads, SQL execution, etc.).
+   - If yes, mark it as a confirmed sink.
+
+3. Try to correlate function parameters (sources) to the same file where dangerous APIs (sinks) appear.
+
+After this step-by-step analysis, return only the final JSON object in this format:
+
+{{  
+  "confirmed_sinks": [ list of dangerous sink function names ],
+  "confirmed_sources": [ {{ "function": "...", "parameter": "..." }} ]
+}}
+
+---
+
+## Example 1: SQL Injection
+
+Input:
+{{
+  "internal_functions": [
+    {{
+      "filename": "user_data.py",
+      "linenumber": 12,
+      "funcname": "get_user_by_name",
+      "funcparams": "request, name",
+      "decorators": "app.route",
+      "docstring": ""
+    }}
+  ],
+  "external_apis": [
+    {{
+      "filename": "user_data.py",
+      "linenumber": 2,
+      "extapis": "django.db.connection.cursor"
+    }}
+  ]
+}}
+
+Chain-of-Thought:
+- The function `get_user_by_name` has a parameter `name`, which likely comes from user input via an HTTP request.
+- The API `django.db.connection.cursor` is a known sink because it executes SQL queries and may be vulnerable to injection.
+- Since both the source and the sink occur in the same file, there may be a data flow from input to database.
+
+Output:
+{{
+  "confirmed_sinks": [
+    "django.db.connection.cursor"
+  ],
+  "confirmed_sources": [
+    {{
+      "function": "get_user_by_name",
+      "parameter": "name"
+    }}
+  ]
+}}
+
+---
+
+## Example 2: Command Injection
+
+Input:
+{{
+  "internal_functions": [
+    {{
+      "filename": "runner.py",
+      "linenumber": 8,
+      "funcname": "run_tool",
+      "funcparams": "request, tool_name",
+      "decorators": "app.route",
+      "docstring": ""
+    }}
+  ],
+  "external_apis": [
+    {{
+      "filename": "runner.py",
+      "linenumber": 3,
+      "extapis": "subprocess.Popen"
+    }}
+  ]
+}}
+
+Chain-of-Thought:
+- The function `run_tool` accepts a parameter named `tool_name`, which is likely user-controlled input coming from a web request.
+- The external API used is `subprocess.Popen`, which is a known dangerous sink. It can lead to command injection if user input is passed without sanitization.
+- Both the source parameter and the sink function appear in the same file (`runner.py`), suggesting a possible connection between input and the dangerous call.
+
+Output:
+{{
+  "confirmed_sinks": [
+    "subprocess.Popen"
+  ],
+  "confirmed_sources": [
+    {{
+      "function": "run_tool",
+      "parameter": "tool_name"
+    }}
+  ]
+}}
+
+---
+
+## Now analyze the following:
+
+Input:
+{data}
+
+Chain-of-Thought:
+"""
+
+
 # This prompt dict allows us to load these prompts from the YAML config file
 PROMPTS_DICT: dict[str, type[Prompts]] = {
     "naive": NaivePrompt,
     "role_prompting": RolePrompting,
     "fewshot": FewShot,
+    "cot": ChainOfThought,
 }

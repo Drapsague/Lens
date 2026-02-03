@@ -1,0 +1,27 @@
+{
+  "confirmed_sinks": [
+    "django.db.connection.cursor",
+    "os.system",
+    "subprocess.Popen",
+    "builtins.exec",
+    "builtins.eval"
+  ],
+  "confirmed_sources": [
+    {
+      "function": "show_user",
+      "parameter": "username"
+    },
+    {
+      "function": "com1",
+      "parameter": "flask.request.args.get"
+    },
+    {
+      "function": "com2",
+      "parameter": "flask.request.args.get"
+    },
+    {
+      "function": "show_user",
+      "parameter": "flask.request.args.get"
+    }
+  ]
+}
