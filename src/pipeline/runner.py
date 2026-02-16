@@ -96,15 +96,14 @@ class PipelineTarget(PipelineRunner):
 
         # Set the context paths, after defining the run_dir
         self.context._setup_path()
+        # Initialize the directories
+        self.context._setup_dir()
 
         # If the prompt is not found, the default prompt is the naive one
         prompt_class = PROMPTS_DICT.get(
             str(self.context.iteration_config.prompt), NaivePrompt
         )
         self.context.prompt_template = prompt_class()
-
-        # Initialize the directories
-        self.context._setup_dir()
 
         # Create Symlinks for CodeQL required files
         self._setup_queries()
@@ -114,13 +113,40 @@ class PipelineTarget(PipelineRunner):
         pipeline_steps: list[PipelineStep] = [
             ContextExtractionStep(),
             ProcessDataStep(),
-            LLMAnalysisStep(),
-            GenerateQLLStep(),
-            RunScanStep(),
         ]
 
         # Execute the steps one by one
         RunSteps(cfg=self.context, steps_list=pipeline_steps).execute_steps()
+
+        # Save the root dir to avoid recursive dir
+        root_dir: Path = self.context.run_dir
+        print(f"\n[*] Running iteration in the: {root_dir}\n")
+
+        # Loop through each models in the config
+        for model in self.context.iteration_config.models:
+            print(f"[*] Running the Test Pipeline with: {model}")
+            # Set the context model to current one in the loop
+            self.context.iteration_config.model = model
+
+            # Remove any special chars invalid for folder's name
+            safe_model_name = model.replace("/", "_").replace(":", "_")
+            self.context.run_dir = root_dir / safe_model_name
+
+            # Set the context paths, after defining the run_dir
+            self.context._setup_path()
+            # Initialize the directories in the model's folder
+            self.context._setup_dir()
+            # Create Symlinks for CodeQL required files
+            self._setup_queries()
+
+            model_steps: list[PipelineStep] = [
+                LLMAnalysisStep(),
+                GenerateQLLStep(),
+                RunScanStep(),
+            ]
+
+            # Execute the steps one by one
+            RunSteps(cfg=self.context, steps_list=model_steps).execute_steps()
 
 
 @dataclass
