@@ -1,0 +1,231 @@
+{
+  "confirmed_sinks": [
+    "sqlite3.connect.cursor.execute",
+    "pickle.Unpickler.load",
+    "pickle.dumps",
+    "os.makedirs",
+    "os.path.join",
+    "os.path.abspath",
+    "os.path.abspath.startswith",
+    "os.listdir",
+    "os.path.exists",
+    "sqlite3.connect.cursor.fetchone",
+    "sqlite3.connect.cursor.fetchall",
+    "sqlite3.connect.commit",
+    "sqlite3.connect.close",
+    "sqlite3.Binary",
+    "requests.get",
+    "requests.get.status_code",
+    "requests.get.text",
+    "flask.send_file",
+    "flask.redirect",
+    "flask.url_for",
+    "flask.flash",
+    "flask.session.get",
+    "flask.Flask.route",
+    "flask.Flask.config",
+    "flask.Flask.run",
+    "builtins.Exception",
+    "builtins.True",
+    "builtins.False",
+    "builtins.None",
+    "builtins.getattr",
+    "builtins.__import__",
+    "builtins.hasattr",
+    "io.BytesIO",
+    "re.sub",
+    "re.sub.startswith",
+    "re.sub.rsplit.lower",
+    "re.sub.rsplit"
+  ],
+  "confirmed_sources": [
+    {
+      "function": "get_user_by_username",
+      "parameter": "username"
+    },
+    {
+      "function": "get_profile",
+      "parameter": "username"
+    },
+    {
+      "function": "update_profile_field",
+      "parameter": "username"
+    },
+    {
+      "function": "set_user_theme",
+      "parameter": "username"
+    },
+    {
+      "function": "get_user_theme_obj",
+      "parameter": "username"
+    },
+    {
+      "function": "get_posts_for_user",
+      "parameter": "username"
+    },
+    {
+      "function": "get_user_home_dir",
+      "parameter": "username"
+    },
+    {
+      "function": "allowed_profile_fields",
+      "parameter": ""
+    },
+    {
+      "function": "find_class",
+      "parameter": "module"
+    },
+    {
+      "function": "find_class",
+      "parameter": "name"
+    },
+    {
+      "function": "safe_unpickle",
+      "parameter": "data"
+    },
+    {
+      "function": "secure_filename",
+      "parameter": "filename"
+    },
+    {
+      "function": "validate_image_upload",
+      "parameter": "filename"
+    },
+    {
+      "function": "check_auth",
+      "parameter": "password"
+    },
+    {
+      "function": "check_auth",
+      "parameter": "user_row"
+    },
+    {
+      "function": "hash_password",
+      "parameter": "password"
+    },
+    {
+      "function": "verify_password",
+      "parameter": "password"
+    },
+    {
+      "function": "verify_password",
+      "parameter": "password_hash"
+    },
+    {
+      "function": "create_user",
+      "parameter": "password"
+    },
+    {
+      "function": "create_user",
+      "parameter": "username"
+    },
+    {
+      "function": "delete_user",
+      "parameter": "username"
+    },
+    {
+      "function": "promote_to_admin",
+      "parameter": "username"
+    },
+    {
+      "function": "add_post",
+      "parameter": "content"
+    },
+    {
+      "function": "add_post",
+      "parameter": "username"
+    },
+    {
+      "function": "listcomp",
+      "parameter": ".0"
+    },
+    {
+      "function": "get_profile",
+      "parameter": "username"
+    },
+    {
+      "function": "update_profile_field",
+      "parameter": "field"
+    },
+    {
+      "function": "update_profile_field",
+      "parameter": "username"
+    },
+    {
+      "function": "update_profile_field",
+      "parameter": "value"
+    },
+    {
+      "function": "save_theme",
+      "parameter": "color"
+    },
+    {
+      "function": "save_theme",
+      "parameter": "font"
+    },
+    {
+      "function": "save_theme",
+      "parameter": "name"
+    },
+    {
+      "function": "save_theme",
+      "parameter": "owner"
+    },
+    {
+      "function": "save_theme",
+      "parameter": "theme_obj"
+    },
+    {
+      "function": "list_themes_for_user_or_public",
+      "parameter": "owner"
+    },
+    {
+      "function": "get_theme_by_id",
+      "parameter": "theme_id"
+    },
+    {
+      "function": "set_user_theme",
+      "parameter": "theme_id"
+    },
+    {
+      "function": "set_user_theme",
+      "parameter": "username"
+    },
+    {
+      "function": "import_theme",
+      "parameter": "fileobj"
+    },
+    {
+      "function": "import_theme",
+      "parameter": "name"
+    },
+    {
+      "function": "import_theme",
+      "parameter": "owner"
+    },
+    {
+      "function": "get_user_theme_obj",
+      "parameter": "username"
+    },
+    {
+      "function": "is_admin",
+      "parameter": "username"
+    },
+    {
+      "function": "profile",
+      "parameter": "username"
+    },
+    {
+      "function": "download",
+      "parameter": "filename"
+    },
+    {
+      "function": "download",
+      "parameter": "username"
+    },
+    {
+      "function": "notify",
+      "parameter": "username"
+    }
+  ]
+}

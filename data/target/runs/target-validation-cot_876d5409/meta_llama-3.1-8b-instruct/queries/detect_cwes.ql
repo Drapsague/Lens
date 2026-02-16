@@ -1,0 +1,1 @@
+/home/drapsague/Devoteam/5_CIR/Lens/queries/detect_cwes.ql

@@ -1,7 +1,6 @@
 from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
 from pathlib import Path
-from typing import Generator
 
 from src.llm import Prompts, LLMClient, LLMConfig
 

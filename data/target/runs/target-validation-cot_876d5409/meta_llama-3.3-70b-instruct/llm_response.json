@@ -1,0 +1,127 @@
+{
+  "confirmed_sinks": [
+    "sqlite3.connect.cursor.execute",
+    "os.system",
+    "eval",
+    "pickle.loads",
+    "os.path.join",
+    "os.makedirs",
+    "os.path.abspath",
+    "sqlite3.connect.commit",
+    "pickle.Unpickler.load"
+  ],
+  "confirmed_sources": [
+    {
+      "function": "get_user_by_username",
+      "parameter": "username"
+    },
+    {
+      "function": "create_user",
+      "parameter": "password"
+    },
+    {
+      "function": "create_user",
+      "parameter": "username"
+    },
+    {
+      "function": "delete_user",
+      "parameter": "username"
+    },
+    {
+      "function": "promote_to_admin",
+      "parameter": "username"
+    },
+    {
+      "function": "add_post",
+      "parameter": "content"
+    },
+    {
+      "function": "add_post",
+      "parameter": "username"
+    },
+    {
+      "function": "get_posts_for_user",
+      "parameter": "username"
+    },
+    {
+      "function": "get_profile",
+      "parameter": "username"
+    },
+    {
+      "function": "update_profile_field",
+      "parameter": "field"
+    },
+    {
+      "function": "update_profile_field",
+      "parameter": "username"
+    },
+    {
+      "function": "update_profile_field",
+      "parameter": "value"
+    },
+    {
+      "function": "set_user_theme",
+      "parameter": "theme_id"
+    },
+    {
+      "function": "set_user_theme",
+      "parameter": "username"
+    },
+    {
+      "function": "list_themes_for_user_or_public",
+      "parameter": "owner"
+    },
+    {
+      "function": "get_theme_by_id",
+      "parameter": "theme_id"
+    },
+    {
+      "function": "import_theme",
+      "parameter": "fileobj"
+    },
+    {
+      "function": "import_theme",
+      "parameter": "name"
+    },
+    {
+      "function": "import_theme",
+      "parameter": "owner"
+    },
+    {
+      "function": "get_user_theme_obj",
+      "parameter": "username"
+    },
+    {
+      "function": "secure_filename",
+      "parameter": "filename"
+    },
+    {
+      "function": "check_auth",
+      "parameter": "password"
+    },
+    {
+      "function": "check_auth",
+      "parameter": "user_row"
+    },
+    {
+      "function": "get_user_home_dir",
+      "parameter": "username"
+    },
+    {
+      "function": "validate_image_upload",
+      "parameter": "filename"
+    },
+    {
+      "function": "find_class",
+      "parameter": "module"
+    },
+    {
+      "function": "find_class",
+      "parameter": "name"
+    },
+    {
+      "function": "safe_unpickle",
+      "parameter": "data"
+    }
+  ]
+}
